@@ -1,0 +1,27 @@
+{
+  "name": "json-xray",
+  "version": "1.0.0",
+  "description": "See right through your data. Generate clean, structural graphs and hierarchical trees from complex JSON.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/az1213-dev/json-xray.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/az1213-dev/json-xray/issues"
+  },
+  "homepage": "https://github.com/az1213-dev/json-xray#readme",
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}
