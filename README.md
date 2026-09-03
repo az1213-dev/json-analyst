@@ -11,7 +11,7 @@
 
 ---
 
-## ✨ Key Features
+## [FEATURES] Key Features
 
 ### Core Analysis Tools
 
@@ -89,7 +89,7 @@
 
 ---
 
-## 🚀 Getting Started
+## [START] Getting Started
 
 ### In Browser (No Installation)
 
@@ -122,7 +122,7 @@ Then navigate to `http://localhost:3000`
 
 ---
 
-## 📋 Tools Overview
+## [TOOLS] Tools Overview
 
 ### Validation & Error Detection
 | Tool | Purpose | Input | Output |
@@ -145,7 +145,7 @@ Then navigate to `http://localhost:3000`
 
 ---
 
-## 🎯 Use Cases
+## [CASES] Use Cases
 
 | Scenario | Tools |
 |----------|-------|
@@ -160,7 +160,7 @@ Then navigate to `http://localhost:3000`
 
 ---
 
-## 🛠️ Technical Stack
+## [TECH] Technical Stack
 
 ### Frontend
 - **HTML5**: Semantic markup, accessibility
@@ -194,7 +194,7 @@ const metrics = computeMetrics(tree);
 
 ---
 
-## 📁 Directory Structure
+## [FILES] Directory Structure
 
 ```
 json-analyst/
@@ -250,7 +250,7 @@ json-analyst/
 
 ---
 
-## ⚡ Performance
+## [PERF] Performance
 
 - **Instant Validation**: <10ms for typical JSON (<10MB)
 - **Efficient Traversal**: Streaming algorithm, low memory
@@ -260,7 +260,7 @@ json-analyst/
 
 ---
 
-## 🔒 Security & Privacy
+## [SECURE] Security & Privacy
 
 ### Privacy First
 - **100% Client-Side**: No backend servers, all processing local
@@ -283,7 +283,7 @@ json-analyst/
 
 ---
 
-## 🎨 Design System
+## [DESIGN] Design System
 
 ### Color Palette
 - **Accent Blue**: Primary interactions
@@ -304,7 +304,7 @@ json-analyst/
 
 ---
 
-## 📦 Installation & Development
+## [SETUP] Installation & Development
 
 ### Quick Start
 ```bash
@@ -340,7 +340,7 @@ This generates:
 
 ---
 
-## 🧪 Testing
+## [TEST] Testing
 
 ### Test Coverage
 - **Engine Tests**: Type detection, AST building, cycle safety
@@ -357,7 +357,7 @@ npm run typecheck    # TypeScript only
 
 ---
 
-## 🌐 Browser Compatibility
+## [BROWSER] Browser Compatibility
 
 | Feature | Chrome | Firefox | Safari | Edge |
 |---------|--------|---------|--------|------|
@@ -369,13 +369,13 @@ npm run typecheck    # TypeScript only
 
 ---
 
-## 📄 License
+## [LICENSE] License
 
 JSON Analyst is released under the **MIT License**. See [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🔗 Links
+## [LINKS] Links
 
 - **GitHub**: https://github.com/az1213-dev/json-analyst
 - **Issues**: https://github.com/az1213-dev/json-analyst/issues
@@ -384,7 +384,7 @@ JSON Analyst is released under the **MIT License**. See [LICENSE](LICENSE) file 
 
 ---
 
-## 💡 Tips & Tricks
+## [TIPS] Tips & Tricks
 
 ### Keyboard Shortcuts
 - `Tab`: Navigate between sections
@@ -421,13 +421,13 @@ JSON Analyst is released under the **MIT License**. See [LICENSE](LICENSE) file 
 
 ---
 
-## 🤝 Contributing
+## [CONTRIB] Contributing
 
 Contributions are welcome! Please see GitHub issues for areas needing help.
 
 ---
 
-## 📞 Support
+## [SUPPORT] Support
 
 For issues, questions, or feature requests:
 - Open an issue on [GitHub](https://github.com/az1213-dev/json-analyst/issues)
@@ -438,5 +438,3 @@ For issues, questions, or feature requests:
 
 **Version**: 1.0.0  
 **Last Updated**: September 2026  
-**Status**: Production Ready  
-**Quality**: 16/16 tests passing | Zero type errors | WCAG AA compliant
