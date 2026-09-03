@@ -138,6 +138,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>Input JSON:</label>
+          <input type="file" id="file-upload-format" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-format" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-format" class="editor-core-area">
           <textarea id="json-format-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to format..."></textarea>
@@ -163,6 +165,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>Malformed JSON:</label>
+          <input type="file" id="file-upload-repair" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-repair" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-repair" class="editor-core-area">
           <textarea id="json-repair-input" class="json-code-input" spellcheck="false" placeholder="Paste malformed JSON to repair..."></textarea>
@@ -188,6 +192,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>Input JSON:</label>
+          <input type="file" id="file-upload-compact" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-compact" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-compact" class="editor-core-area">
           <textarea id="json-compact-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to compact..."></textarea>
@@ -213,6 +219,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>JSON Array Input:</label>
+          <input type="file" id="file-upload-csv" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-csv" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-csv" class="editor-core-area">
           <textarea id="json-csv-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON array to convert to CSV..."></textarea>
@@ -238,6 +246,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>JSON Input:</label>
+          <input type="file" id="file-upload-chart" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-chart" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-chart" class="editor-core-area">
           <textarea id="json-chart-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to visualize structure..."></textarea>
@@ -274,6 +284,8 @@
       <div class="editor-card">
         <div class="editor-card-header">
           <label>JSON Input:</label>
+          <input type="file" id="file-upload-tree" class="file-upload-input" accept=".json,application/json" hidden />
+          <button id="btn-upload-tree" type="button" class="btn-upload-file">Upload File</button>
         </div>
         <div id="editor-core-area-tree" class="editor-core-area">
           <textarea id="json-tree-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to explore hierarchy..."></textarea>

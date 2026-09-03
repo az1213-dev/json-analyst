@@ -73,8 +73,7 @@ class App {
     if (!uploadBtn || !fileInput) return;
 
     uploadBtn.addEventListener('click', () => fileInput.click());
-
-    fileInput.addEventListener('change', (e) => this.handleFileUpload(e));
+    fileInput.addEventListener('change', (e) => this.handleFileUpload(e, 'json-code-input'));
 
     // Drag and drop
     jsonInput?.addEventListener('dragover', (e) => {
@@ -92,12 +91,36 @@ class App {
       const files = e.dataTransfer.files;
       if (files.length > 0) {
         fileInput.files = files;
-        this.handleFileUpload({ target: fileInput });
+        this.handleFileUpload({ target: fileInput }, 'json-code-input');
+      }
+    });
+
+    // Setup file uploads for other tools
+    this.setupToolFileUploads();
+  }
+
+  setupToolFileUploads() {
+    const toolUploads = [
+      { btn: 'btn-upload-format', input: 'file-upload-format', target: 'json-format-input' },
+      { btn: 'btn-upload-repair', input: 'file-upload-repair', target: 'json-repair-input' },
+      { btn: 'btn-upload-compact', input: 'file-upload-compact', target: 'json-compact-input' },
+      { btn: 'btn-upload-csv', input: 'file-upload-csv', target: 'json-csv-input' },
+      { btn: 'btn-upload-chart', input: 'file-upload-chart', target: 'json-chart-input' },
+      { btn: 'btn-upload-tree', input: 'file-upload-tree', target: 'json-tree-input' }
+    ];
+
+    toolUploads.forEach(({ btn, input, target }) => {
+      const uploadBtn = document.getElementById(btn);
+      const fileInput = document.getElementById(input);
+
+      if (uploadBtn && fileInput) {
+        uploadBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => this.handleFileUpload(e, target));
       }
     });
   }
 
-  handleFileUpload(e) {
+  handleFileUpload(e, targetId = 'json-code-input') {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -113,10 +136,12 @@ class App {
 
     const reader = new FileReader();
     reader.onload = (event) => {
-      const jsonInput = document.getElementById('json-code-input');
+      const jsonInput = document.getElementById(targetId);
       if (jsonInput) {
         jsonInput.value = event.target.result;
-        this.updateLineNumbers();
+        if (targetId === 'json-code-input') {
+          this.updateLineNumbers();
+        }
       }
     };
     reader.readAsText(file);
