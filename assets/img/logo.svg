@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <!-- Background -->
+  <rect width="48" height="48" rx="10" fill="#ffffff" opacity="0.05"/>
+
+  <!-- Prism layers representing data structure -->
+  <!-- Bottom layer (base) -->
+  <path d="M8 32 L24 38 L40 32 L40 35 L24 41 L8 35 Z" fill="#1f6feb" opacity="0.7"/>
+
+  <!-- Middle layer -->
+  <path d="M12 22 L24 28 L36 22 L36 25 L24 31 L12 25 Z" fill="#3b82f6" opacity="0.85"/>
+
+  <!-- Top layer (highlight) -->
+  <path d="M16 12 L24 18 L32 12 L32 15 L24 21 L16 15 Z" fill="#60a5fa"/>
+
+  <!-- Connecting lines showing hierarchy -->
+  <line x1="24" y1="21" x2="24" y2="28" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+  <line x1="24" y1="31" x2="24" y2="38" stroke="#1f6feb" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Central highlight dot -->
+  <circle cx="24" cy="18" r="2.5" fill="#60a5fa" opacity="0.9"/>
+  <circle cx="24" cy="28" r="2.5" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="24" cy="38" r="2.5" fill="#1f6feb" opacity="0.7"/>
+</svg>

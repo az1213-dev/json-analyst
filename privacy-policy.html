@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — JSON X-Ray</title>
+  <meta name="description" content="Privacy policy for JSON X-Ray, an open-source JSON validator and formatter tool." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .policy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .policy-header {
+      margin-bottom: 40px;
+    }
+
+    .policy-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .policy-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .policy-section {
+      margin-bottom: 32px;
+    }
+
+    .policy-section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .policy-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+
+    .policy-section p,
+    .policy-section li {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .policy-section ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .policy-section li {
+      margin-bottom: 8px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-blue-hover);
+    }
+
+    .back-icon {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .highlight-box {
+      background: var(--bg-surface-elevated);
+      border-left: 3px solid var(--accent-blue);
+      padding: 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MAIN NAVIGATION BAR -->
+  <nav class="main-nav-bar" aria-label="Main Navigation">
+    <div class="nav-bar-inner">
+      <div class="nav-tools-grid">
+        <a href="index.html#validate" class="nav-tool-link" title="Validate JSON">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Validate</span>
+        </a>
+        <a href="index.html#format" class="nav-tool-link" title="Format JSON">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20"></path>
+          </svg>
+          <span>Format</span>
+        </a>
+        <a href="index.html#minify" class="nav-tool-link" title="Minify JSON">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8 12h8"></path>
+          </svg>
+          <span>Minify</span>
+        </a>
+        <a href="index.html#chart" class="nav-tool-link" title="View Structure Chart">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+          </svg>
+          <span>Chart</span>
+        </a>
+        <a href="index.html#tree" class="nav-tool-link" title="Tree Explorer">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="5" r="1"></circle>
+            <line x1="12" y1="6" x2="12" y2="12"></line>
+            <circle cx="6" cy="13" r="1"></circle>
+            <circle cx="18" cy="13" r="1"></circle>
+            <line x1="12" y1="12" x2="6" y2="13"></line>
+            <line x1="12" y1="12" x2="18" y2="13"></line>
+            <line x1="6" y1="14" x2="6" y2="20"></line>
+            <line x1="18" y1="14" x2="18" y2="20"></line>
+            <circle cx="6" cy="21" r="1"></circle>
+            <circle cx="18" cy="21" r="1"></circle>
+          </svg>
+          <span>Tree</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TOP HEADER -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a id="logo-link" class="brand-wrap" href="index.html">
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g fill="currentColor" opacity="0.9">
+              <path d="M8 12 L16 16 L24 12 L24 14 L16 18 L8 14 Z" opacity="0.95"/>
+              <path d="M10 18 L16 22 L22 18 L22 20 L16 24 L10 20 Z" opacity="0.8"/>
+            </g>
+            <line x1="16" y1="18" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="brand-title">JSON<span>X-Ray</span></div>
+      </a>
+      <div class="header-tools">
+        <a id="github-link" href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
+        <button id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="policy-container">
+    <a href="index.html" class="back-link">
+      <svg class="back-icon" viewBox="0 0 24 24" fill="none">
+        <path d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Back to JSON X-Ray
+    </a>
+
+    <div class="policy-header">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: September 3, 2024</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Overview</h2>
+      <p>JSON X-Ray ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains our data practices for the JSON X-Ray web application.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>No Data Collection</h2>
+      <div class="highlight-box">
+        <p><strong>JSON X-Ray is a 100% client-side application.</strong> All processing happens in your browser. We do not collect, store, transmit, or analyze any of your JSON data.</p>
+      </div>
+      <h3>What This Means:</h3>
+      <ul>
+        <li>Your JSON files never leave your computer</li>
+        <li>No data is sent to our servers (we don't have any servers)</li>
+        <li>No cookies are used to track your activity</li>
+        <li>No analytics or telemetry is collected</li>
+        <li>Your charts, validations, and exports are created only on your device</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>How JSON X-Ray Works</h2>
+      <p>When you use JSON X-Ray, all operations occur locally in your web browser:</p>
+      <ul>
+        <li><strong>Validation:</strong> Your JSON is validated using JavaScript running on your machine</li>
+        <li><strong>Formatting:</strong> Beautification and minification happen locally</li>
+        <li><strong>Visualization:</strong> Charts and tree structures are generated in your browser</li>
+        <li><strong>Export:</strong> Image exports (PNG/SVG) are created locally and downloaded to your device</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>GitHub Links</h2>
+      <p>JSON X-Ray includes a link to our GitHub repository. When you click this link, you leave JSON X-Ray and visit GitHub.com. GitHub's privacy practices are governed by their own privacy policy.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Browser Data & Local Storage</h2>
+      <p>JSON X-Ray may use browser localStorage to persist your preferences, such as:</p>
+      <ul>
+        <li>Your theme preference (light/dark mode)</li>
+      </ul>
+      <p>This data is stored only on your device and never transmitted anywhere. You can clear this data anytime by clearing your browser's local storage.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Third-Party Dependencies</h2>
+      <p>JSON X-Ray uses the following third-party resources, all loaded from trusted CDNs:</p>
+      <ul>
+        <li><strong>Google Fonts:</strong> The Inter typeface is loaded from Google Fonts for consistent typography</li>
+      </ul>
+      <p>When Google Fonts are loaded, Google may collect basic information about your request (IP address, user agent). Refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">Google's Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Security</h2>
+      <p>Since all processing happens on your device, the security of your data depends on your browser and device security. We recommend:</p>
+      <ul>
+        <li>Using an up-to-date web browser with the latest security patches</li>
+        <li>Only using JSON X-Ray on devices with appropriate security measures</li>
+        <li>Not leaving your device unattended while sensitive data is displayed</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>Open Source</h2>
+      <p>JSON X-Ray is open-source software available on GitHub. You can review our source code to verify our privacy and security practices. Visit our <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> to see the code.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify users of any material changes by updating the "Last updated" date at the top of this policy.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy, please visit our <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> and open an issue.</p>
+    </div>
+
+    <div class="policy-section">
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+        JSON X-Ray is provided as-is for educational and professional use. By using this application, you agree to this Privacy Policy.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-text">Copyright 2026 JSON X-Ray. Made for developers. Runs 100% client-side in your browser.</span>
+      </div>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">About</a>
+        <span class="footer-sep">·</span>
+        <a href="privacy-policy.html" class="footer-link">Privacy</a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { Icons, icon } from './assets/js/icons.js';
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const githubLink = document.getElementById('github-link');
+    const logoLink = document.getElementById('logo-link');
+
+    if (logoLink) {
+      logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('json-xray-theme');
+      const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = isDark ? 'dark' : 'light';
+      document.documentElement.classList.toggle('light', theme === 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    if (themeToggle) {
+      initTheme();
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('light');
+        const newTheme = isDark ? 'dark' : 'light';
+        document.documentElement.classList.toggle('light');
+        document.documentElement.setAttribute('data-theme', newTheme);
+        try {
+          localStorage.setItem('json-xray-theme', newTheme);
+        } catch (e) {
+          console.warn('localStorage unavailable');
+        }
+      });
+    }
+
+    if (githubLink && Icons.github) {
+      githubLink.innerHTML = Icons.github;
+    }
+  </script>
+</body>
+</html>

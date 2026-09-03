@@ -2,15 +2,37 @@
   "name": "json-xray",
   "version": "1.0.0",
   "description": "See right through your data. Generate clean, structural graphs and hierarchical trees from complex JSON.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/**/*.test.js tests/**/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "build": "tsup src/index.ts --format cjs,esm && tsc --emitDeclarationOnly",
+    "ci": "npm run check && npm run build",
+    "preview": "npx serve ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/az1213-dev/json-xray.git"
   },
-  "keywords": [],
+  "keywords": [
+    "json",
+    "ast",
+    "tree",
+    "visualizer",
+    "inspector",
+    "mermaid",
+    "graphviz",
+    "dot",
+    "family-tree",
+    "cli"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
