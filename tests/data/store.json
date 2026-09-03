@@ -1,0 +1,86 @@
+{
+  "storeId": "store-001",
+  "storeName": "Tech Mega Store",
+  "location": {
+    "address": "123 Main Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94105",
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  "hours": {
+    "monday": "9:00-21:00",
+    "tuesday": "9:00-21:00",
+    "wednesday": "9:00-21:00",
+    "thursday": "9:00-21:00",
+    "friday": "9:00-22:00",
+    "saturday": "10:00-22:00",
+    "sunday": "10:00-20:00"
+  },
+  "inventory": [
+    {
+      "productId": "P001",
+      "name": "Laptop Pro",
+      "category": "Electronics",
+      "price": 1299.99,
+      "stock": 45,
+      "specifications": {
+        "cpu": "Intel i9",
+        "ram": "32GB",
+        "storage": "1TB SSD"
+      }
+    },
+    {
+      "productId": "P002",
+      "name": "Wireless Mouse",
+      "category": "Accessories",
+      "price": 29.99,
+      "stock": 200,
+      "specifications": {
+        "connection": "2.4GHz",
+        "battery": "18 months"
+      }
+    },
+    {
+      "productId": "P003",
+      "name": "USB-C Cable",
+      "category": "Cables",
+      "price": 12.99,
+      "stock": 500,
+      "specifications": {
+        "length": "2 meters",
+        "maxPower": "100W"
+      }
+    }
+  ],
+  "employees": {
+    "total": 15,
+    "managers": [
+      {
+        "id": "M001",
+        "name": "Sarah Chen",
+        "role": "Store Manager"
+      }
+    ],
+    "staff": [
+      {
+        "id": "S001",
+        "name": "Tom Johnson",
+        "department": "Sales"
+      },
+      {
+        "id": "S002",
+        "name": "Emma Davis",
+        "department": "Customer Service"
+      }
+    ]
+  },
+  "metadata": {
+    "established": "2015",
+    "chainMember": true,
+    "website": "https://techstore.example.com"
+  }
+}

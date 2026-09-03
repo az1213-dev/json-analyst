@@ -1,0 +1,37 @@
+{
+  "name": "John Smith",
+  "born": 1950,
+  "spouse": "Mary Johnson",
+  "children": [
+    {
+      "name": "Robert Smith",
+      "born": 1975,
+      "spouse": "Jane Doe",
+      "children": [
+        {
+          "name": "Emily Smith",
+          "born": 2000
+        },
+        {
+          "name": "Michael Smith",
+          "born": 2002
+        }
+      ]
+    },
+    {
+      "name": "Susan Smith",
+      "born": 1978,
+      "spouse": "Tom Brown",
+      "children": [
+        {
+          "name": "Christopher Brown",
+          "born": 2005
+        }
+      ]
+    },
+    {
+      "name": "James Smith",
+      "born": 1980
+    }
+  ]
+}

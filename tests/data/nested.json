@@ -1,0 +1,29 @@
+{
+  "level1": {
+    "level2": {
+      "level3": {
+        "level4": {
+          "level5": {
+            "message": "Deeply nested data structure",
+            "value": 12345,
+            "tags": ["deep", "nested", "test"]
+          }
+        }
+      }
+    }
+  },
+  "alternativePath": {
+    "branch1": {
+      "data": "Branch 1 data",
+      "subbranch": {
+        "value": 100
+      }
+    },
+    "branch2": {
+      "data": "Branch 2 data",
+      "subbranch": {
+        "value": 200
+      }
+    }
+  }
+}

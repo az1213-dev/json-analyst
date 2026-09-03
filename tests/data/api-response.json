@@ -1,0 +1,47 @@
+{
+  "status": "success",
+  "code": 200,
+  "timestamp": "2024-09-02T14:45:30.123Z",
+  "data": {
+    "user": {
+      "id": "usr_abc123",
+      "email": "user@example.com",
+      "profile": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "avatar": "https://api.example.com/avatars/usr_abc123.jpg",
+        "bio": "Software engineer passionate about web development",
+        "location": "San Francisco, CA"
+      },
+      "permissions": ["read", "write", "admin"],
+      "lastActive": "2024-09-02T14:30:00Z"
+    },
+    "resources": [
+      {
+        "id": "res_001",
+        "name": "User Dashboard",
+        "type": "page",
+        "url": "/dashboard",
+        "permissions": ["read"]
+      },
+      {
+        "id": "res_002",
+        "name": "Admin Panel",
+        "type": "page",
+        "url": "/admin",
+        "permissions": ["read", "write", "admin"]
+      }
+    ]
+  },
+  "pagination": {
+    "page": 1,
+    "pageSize": 50,
+    "total": 128,
+    "hasMore": true
+  },
+  "errors": null,
+  "meta": {
+    "requestId": "req_xyz789",
+    "responseTime": 245
+  }
+}

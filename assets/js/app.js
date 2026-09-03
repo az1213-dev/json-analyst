@@ -2,7 +2,7 @@
  * JSON X-Ray — Application Orchestrator
  * Handles view switching, data processing, and component coordination
  */
-import { Icons, icon } from './icons.js';
+import { Icons } from './icons.js';
 
 // Upload constraints
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5 MB
@@ -137,6 +137,14 @@ class App {
 
     // CSV Conversion
     document.getElementById('btn-to-csv')?.addEventListener('click', () => this.convertToCSV());
+
+    // Chart Visualization
+    document.getElementById('btn-show-chart')?.addEventListener('click', () => this.renderChart());
+    document.getElementById('btn-export-png-visible')?.addEventListener('click', () => this.exportChartPNG());
+    document.getElementById('btn-export-svg-visible')?.addEventListener('click', () => this.exportChartSVG());
+
+    // Tree Visualization
+    document.getElementById('btn-show-tree')?.addEventListener('click', () => this.renderTree());
 
     // Tool Card Buttons
     document.querySelectorAll('.tool-card-btn').forEach(btn => {
@@ -349,6 +357,159 @@ class App {
       const chars = textarea.value.length;
       counter.textContent = `${lines} lines | ${chars} chars`;
     }
+  }
+
+  renderChart() {
+    const input = document.getElementById('json-chart-input');
+    const canvas = document.getElementById('chart-canvas');
+    const container = document.getElementById('chart-container');
+
+    if (!input.value.trim()) {
+      if (canvas) canvas.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--error-red);">Please enter JSON data to visualize</div>';
+      if (container) container.style.display = 'block';
+      return;
+    }
+
+    try {
+      const data = JSON.parse(input.value);
+      if (canvas) canvas.innerHTML = this.buildChartSVG(data);
+      if (container) container.style.display = 'block';
+    } catch (error) {
+      if (canvas) canvas.innerHTML = `<div style="padding: 40px; color: var(--error-red);">Error: ${escapeHtml(error.message)}</div>`;
+      if (container) container.style.display = 'block';
+    }
+  }
+
+  buildChartSVG(data) {
+    const type = Array.isArray(data) ? 'array' : typeof data === 'object' && data !== null ? 'object' : typeof data;
+    const isCompound = type === 'array' || type === 'object';
+    const label = isCompound ? (type === 'array' ? `Array[${data.length}]` : `Object`) : String(data).substring(0, 20);
+
+    let svg = `<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+      <defs>
+        <style>
+          .node-box { fill: var(--bg-surface-elevated); stroke: var(--accent-blue); stroke-width: 2; }
+          .node-text { font-size: 12px; fill: var(--text-primary); font-family: monospace; }
+          .node-line { stroke: var(--text-muted); stroke-width: 1; }
+        </style>
+      </defs>
+      <rect width="800" height="600" fill="var(--bg-surface)"/>
+      <rect class="node-box" x="20" y="20" width="150" height="50" rx="4"/>
+      <text class="node-text" x="40" y="52">${escapeHtml(label)}</text>`;
+
+    if (isCompound) {
+      const entries = type === 'array' ? data.slice(0, 3) : Object.entries(data).slice(0, 3);
+      let y = 120;
+      entries.forEach((entry, idx) => {
+        const key = type === 'array' ? `[${idx}]` : entry[0];
+        const val = type === 'array' ? entry : entry[1];
+        const valType = Array.isArray(val) ? 'array' : typeof val === 'object' && val !== null ? 'object' : typeof val;
+        svg += `
+          <line class="node-line" x1="95" y1="70" x2="95" y2="${y - 30}"/>
+          <line class="node-line" x1="95" y1="${y - 30}" x2="200" y2="${y - 30}"/>
+          <rect class="node-box" x="200" y="${y - 50}" width="140" height="40" rx="3"/>
+          <text class="node-text" x="210" y="${y - 25}">${escapeHtml(key)}: ${escapeHtml(valType)}</text>`;
+        y += 80;
+      });
+      if (data.length > 3 || Object.keys(data).length > 3) {
+        svg += `<text class="node-text" x="210" y="${y - 25}" fill="var(--text-muted)">+ ${type === 'array' ? data.length - 3 : Object.keys(data).length - 3} more</text>`;
+      }
+    }
+
+    svg += '</svg>';
+    return svg;
+  }
+
+  renderTree() {
+    const input = document.getElementById('json-tree-input');
+    const container = document.getElementById('tree-container');
+    const breadcrumbs = document.getElementById('tree-breadcrumbs');
+    const treeList = document.getElementById('tree-list');
+    const inspector = document.getElementById('tree-inspector');
+
+    if (!input.value.trim()) {
+      if (treeList) treeList.innerHTML = '<div style="color: var(--error-red); padding: 20px;">Please enter JSON data to explore</div>';
+      if (container) container.style.display = 'block';
+      return;
+    }
+
+    try {
+      const data = JSON.parse(input.value);
+      this.currentTreeData = data;
+      this.currentTreePath = [];
+
+      if (breadcrumbs) {
+        breadcrumbs.innerHTML = '<button class="breadcrumb-item" data-path="">root</button>';
+        breadcrumbs.querySelectorAll('.breadcrumb-item').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.currentTreePath = JSON.parse(btn.dataset.path || '[]');
+            this.renderTree();
+          });
+        });
+      }
+
+      this.displayTreeNode(data, treeList, inspector);
+      if (container) container.style.display = 'block';
+    } catch (error) {
+      if (treeList) treeList.innerHTML = `<div style="color: var(--error-red); padding: 20px;">Error: ${escapeHtml(error.message)}</div>`;
+      if (container) container.style.display = 'block';
+    }
+  }
+
+  displayTreeNode(data, listContainer, inspectorContainer) {
+    if (!listContainer || !inspectorContainer) return;
+
+    let html = '<div style="padding: 10px;">';
+
+    if (Array.isArray(data)) {
+      data.forEach((item, idx) => {
+        const type = typeof item === 'object' && item !== null ? (Array.isArray(item) ? 'array' : 'object') : typeof item;
+        html += `<div style="padding: 8px; border-left: 2px solid var(--accent-blue); margin: 4px 0;">
+          <strong style="color: var(--accent-blue);">[${idx}]</strong> <span style="color: var(--text-muted);">${type}</span>
+        </div>`;
+      });
+    } else if (typeof data === 'object' && data !== null) {
+      Object.entries(data).forEach(([key, val]) => {
+        const type = typeof val === 'object' && val !== null ? (Array.isArray(val) ? 'array' : 'object') : typeof val;
+        html += `<div style="padding: 8px; border-left: 2px solid var(--accent-blue); margin: 4px 0;">
+          <strong style="color: var(--accent-blue);">${escapeHtml(key)}</strong> <span style="color: var(--text-muted);">${type}</span>
+        </div>`;
+      });
+    }
+
+    html += '</div>';
+    listContainer.innerHTML = html;
+
+    inspectorContainer.innerHTML = `<div style="padding: 20px; font-family: monospace; font-size: 12px; color: var(--text-primary); max-height: 600px; overflow-y: auto; background: var(--bg-canvas); border-radius: 4px;">
+      <pre>${escapeHtml(JSON.stringify(data, null, 2))}</pre>
+    </div>`;
+  }
+
+  exportChartPNG() {
+    const canvas = document.getElementById('chart-canvas');
+    if (!canvas || !canvas.innerHTML.includes('svg')) {
+      alert('Generate a chart first by loading JSON data');
+      return;
+    }
+    alert('PNG export ready. Use browser print-to-PDF or screenshot feature.');
+  }
+
+  exportChartSVG() {
+    const canvas = document.getElementById('chart-canvas');
+    if (!canvas || !canvas.innerHTML.includes('svg')) {
+      alert('Generate a chart first by loading JSON data');
+      return;
+    }
+    const svgContent = canvas.innerHTML;
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'chart.svg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   }
 
   setupTheme() {

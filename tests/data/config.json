@@ -1,0 +1,48 @@
+{
+  "appName": "JSON Analyst",
+  "version": "1.0.0",
+  "environment": "production",
+  "server": {
+    "host": "localhost",
+    "port": 3000,
+    "protocol": "https",
+    "timeout": 30000,
+    "maxConnections": 100
+  },
+  "database": {
+    "type": "postgres",
+    "host": "db.example.com",
+    "port": 5432,
+    "credentials": {
+      "username": "admin",
+      "useSSL": true
+    },
+    "pool": {
+      "min": 2,
+      "max": 10
+    }
+  },
+  "features": {
+    "authentication": true,
+    "analytics": true,
+    "darkMode": true,
+    "exportToPDF": false,
+    "advancedSearch": true
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "destinations": ["console", "file"],
+    "retention": {
+      "days": 30
+    }
+  },
+  "security": {
+    "corsEnabled": true,
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerMinute": 100
+    },
+    "sessionTimeout": 1800
+  }
+}

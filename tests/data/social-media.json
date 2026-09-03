@@ -1,0 +1,56 @@
+{
+  "post": {
+    "id": "post-12345",
+    "author": {
+      "id": "user-001",
+      "username": "john_developer",
+      "displayName": "John Developer",
+      "avatar": "https://example.com/avatars/john.jpg",
+      "verified": true
+    },
+    "content": "Just built an amazing JSON visualization tool! #developer #json #tools",
+    "timestamp": "2024-09-02T14:30:00Z",
+    "metrics": {
+      "views": 1542,
+      "likes": 234,
+      "comments": 18,
+      "shares": 12,
+      "engagement": 0.156
+    },
+    "comments": [
+      {
+        "id": "comment-001",
+        "author": {
+          "username": "jane_tech",
+          "displayName": "Jane Tech"
+        },
+        "text": "This looks amazing! Can't wait to try it.",
+        "timestamp": "2024-09-02T15:00:00Z",
+        "likes": 45
+      },
+      {
+        "id": "comment-002",
+        "author": {
+          "username": "bob_codes",
+          "displayName": "Bob Codes"
+        },
+        "text": "Great work! Do you have open source available?",
+        "timestamp": "2024-09-02T15:15:00Z",
+        "likes": 28
+      }
+    ],
+    "tags": ["developer", "json", "tools", "visualization", "coding"],
+    "media": [
+      {
+        "type": "image",
+        "url": "https://example.com/posts/12345/image1.jpg",
+        "caption": "Dashboard view"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/posts/12345/image2.jpg",
+        "caption": "Tree visualization"
+      }
+    ]
+  }
+}

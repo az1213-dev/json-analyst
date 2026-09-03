@@ -1,0 +1,11 @@
+{
+  "name": "John Doe",
+  "age": 28,
+  "email": "john@example.com",
+  "active": true,
+  "roles": ["admin", "user"],
+  "metadata": {
+    "created": "2024-01-15",
+    "lastLogin": "2024-09-02"
+  }
+}
