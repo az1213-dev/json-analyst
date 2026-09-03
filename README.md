@@ -1,6 +1,6 @@
 # JSON X-Ray
 
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Zero Server Dependencies](https://img.shields.io/badge/server%20dependencies-0-brightgreen.svg)]()
 [![100% Client-Side](https://img.shields.io/badge/execution-client%20side-blue.svg)]()
 [![Tests Passing](https://img.shields.io/badge/tests-16%2F16-brightgreen.svg)]()

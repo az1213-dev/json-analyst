@@ -34,7 +34,7 @@
     "cli"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/az1213-dev/json-xray/issues"

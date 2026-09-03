@@ -210,6 +210,9 @@ dev-assets/
 temp/
 scratch/
 
+# Claude AI documentation edits (for internal use only)
+.claude/edits/
+
 # Test coverage
 coverage/
 .coverage
