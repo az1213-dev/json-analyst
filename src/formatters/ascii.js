@@ -2,7 +2,7 @@
 
 /**
  * Format primitive value for ASCII display.
- * @param {import('../types/ast').XrayPrimitiveNode} node
+ * @param {import('../types/ast').AnalystPrimitiveNode} node
  * @returns {string}
  */
 function formatValue(node) {
@@ -13,8 +13,8 @@ function formatValue(node) {
 
 /**
  * Build label for a node based on config options.
- * @param {import('../types/ast').XrayNode} node
- * @param {Required<import('../types/config').XrayConfig>} config
+ * @param {import('../types/ast').AnalystNode} node
+ * @param {Required<import('../types/config').AnalystConfig>} config
  * @returns {string}
  */
 function labelFor(node, config) {
@@ -57,7 +57,7 @@ function labelFor(node, config) {
 
 /**
  * Format archetype summary schema into a single readable string.
- * @param {import('../types/ast').XrayArchetype} archetype
+ * @param {import('../types/ast').AnalystArchetype} archetype
  * @returns {string}
  */
 function formatArchetype(archetype) {
@@ -70,16 +70,16 @@ function formatArchetype(archetype) {
 }
 
 /**
- * Render an XrayTree as an indented box-drawing ASCII tree.
- * @param {import('../types/ast').XrayTree} tree
- * @param {Required<import('../types/config').XrayConfig>} config
+ * Render an AnalystTree as an indented box-drawing ASCII tree.
+ * @param {import('../types/ast').AnalystTree} tree
+ * @param {Required<import('../types/config').AnalystConfig>} config
  * @returns {string}
  */
 function renderAscii(tree, config) {
   const lines = [];
 
   /**
-   * @param {import('../types/ast').XrayNode} node
+   * @param {import('../types/ast').AnalystNode} node
    * @param {string} prefix
    * @param {boolean} isLast
    * @param {boolean} isRoot

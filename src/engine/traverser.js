@@ -55,10 +55,10 @@ function sampleArray(arr, sampleSize) {
  * @param {string|number|null} key
  * @param {string} path
  * @param {number} depth
- * @param {Required<import('../types/config').XrayConfig>} config
- * @param {{ totalNodes: number, maxDepthReached: number, truncated: boolean, anomalies: import('../types/ast').XrayAnomaly[] }} context
+ * @param {Required<import('../types/config').AnalystConfig>} config
+ * @param {{ totalNodes: number, maxDepthReached: number, truncated: boolean, anomalies: import('../types/ast').AnalystAnomaly[] }} context
  * @param {Map<object, string>} ancestorMap
- * @returns {import('../types/ast').XrayNode}
+ * @returns {import('../types/ast').AnalystNode}
  */
 function buildNode(value, key, path, depth, config, context, ancestorMap) {
   context.totalNodes++;
@@ -144,7 +144,7 @@ function buildNode(value, key, path, depth, config, context, ancestorMap) {
     const objVal = /** @type {Record<string, unknown>} */ (value);
     const keys = Object.keys(objVal);
 
-    /** @type {import('../types/ast').XrayAnomaly[]} */
+    /** @type {import('../types/ast').AnalystAnomaly[]} */
     const nodeAnomalies = [];
     if (keys.length === 0) {
       const emptyAnomaly = {
@@ -177,7 +177,7 @@ function buildNode(value, key, path, depth, config, context, ancestorMap) {
     const arrVal = /** @type {unknown[]} */ (value);
     const itemType = detectItemType(arrVal);
 
-    /** @type {import('../types/ast').XrayAnomaly[]} */
+    /** @type {import('../types/ast').AnalystAnomaly[]} */
     const nodeAnomalies = [];
 
     if (arrVal.length === 0) {
@@ -257,27 +257,27 @@ const DEFAULT_CONFIG = {
   colors: true,
   showMetrics: false,
   showAnomalies: true,
-  title: 'JSON X-Ray',
+  title: 'JSON Analyst',
 };
 
 /**
  * Resolve user config with default fallbacks.
  * @param {any} [config]
- * @returns {Required<import('../types/config').XrayConfig>}
+ * @returns {Required<import('../types/config').AnalystConfig>}
  */
 function resolveConfig(config) {
   const merged = { ...DEFAULT_CONFIG, ...config };
   if (merged.collapseArrays === false) {
     merged.maxArraySample = Infinity;
   }
-  return /** @type {Required<import('../types/config').XrayConfig>} */ (merged);
+  return /** @type {Required<import('../types/config').AnalystConfig>} */ (merged);
 }
 
 /**
- * Build an XrayTree AST from any JSON-compatible value.
+ * Build an AnalystTree AST from any JSON-compatible value.
  * @param {unknown} value
  * @param {any} [userConfig]
- * @returns {import('../types/ast').XrayTree}
+ * @returns {import('../types/ast').AnalystTree}
  */
 function buildTree(value, userConfig) {
   const config = resolveConfig(userConfig);

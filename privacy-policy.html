@@ -165,10 +165,10 @@
             <line x1="16" y1="18" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
           </svg>
         </div>
-        <div class="brand-title">JSON<span>X-Ray</span></div>
+        <div class="brand-title">JSON<span>Analyst</span></div>
       </a>
       <div class="header-tools">
-        <a id="github-link" href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
+        <a id="github-link" href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
         <button id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme"></button>
       </div>
     </div>
@@ -253,7 +253,7 @@
 
     <div class="policy-section">
       <h2>Open Source</h2>
-      <p>JSON Analyst is open-source software available on GitHub. You can review our source code to verify our privacy and security practices. Visit our <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> to see the code.</p>
+      <p>JSON Analyst is open-source software available on GitHub. You can review our source code to verify our privacy and security practices. Visit our <a href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> to see the code.</p>
     </div>
 
     <div class="policy-section">
@@ -263,7 +263,7 @@
 
     <div class="policy-section">
       <h2>Contact Us</h2>
-      <p>If you have questions or concerns about this Privacy Policy, please visit our <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> and open an issue.</p>
+      <p>If you have questions or concerns about this Privacy Policy, please visit our <a href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">GitHub repository</a> and open an issue.</p>
     </div>
 
     <div class="policy-section">
@@ -284,7 +284,7 @@
         <span class="footer-sep">·</span>
         <a href="privacy-policy.html" class="footer-link">Privacy</a>
         <span class="footer-sep">·</span>
-        <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
       </div>
     </div>
   </footer>
@@ -304,7 +304,7 @@
     }
 
     function initTheme() {
-      const saved = localStorage.getItem('json-xray-theme');
+      const saved = localStorage.getItem('json-analyst-theme');
       const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = isDark ? 'dark' : 'light';
       document.documentElement.classList.toggle('light', theme === 'light');
@@ -319,7 +319,7 @@
         document.documentElement.classList.toggle('light');
         document.documentElement.setAttribute('data-theme', newTheme);
         try {
-          localStorage.setItem('json-xray-theme', newTheme);
+          localStorage.setItem('json-analyst-theme', newTheme);
         } catch (e) {
           console.warn('localStorage unavailable');
         }

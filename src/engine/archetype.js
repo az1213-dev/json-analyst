@@ -6,7 +6,7 @@ const { detectType } = require('./detector');
  * Infer a merged schema archetype from an array of items.
  * @param {unknown[]} arr
  * @param {number} [maxSample]
- * @returns {import('../types/ast').XrayArchetype | null}
+ * @returns {import('../types/ast').AnalystArchetype | null}
  */
 function inferArchetype(arr, maxSample = 50) {
   if (!Array.isArray(arr) || arr.length === 0) {

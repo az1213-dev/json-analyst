@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/az1213-dev/json-xray.git"
+    "url": "git+https://github.com/az1213-dev/json-analyst.git"
   },
   "keywords": [
     "json",
@@ -37,9 +37,9 @@
   "license": "MIT",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/az1213-dev/json-xray/issues"
+    "url": "https://github.com/az1213-dev/json-analyst/issues"
   },
-  "homepage": "https://github.com/az1213-dev/json-xray#readme",
+  "homepage": "https://github.com/az1213-dev/json-analyst#readme",
   "devDependencies": {
     "@types/node": "^26.4.1",
     "tsup": "^8.5.1",

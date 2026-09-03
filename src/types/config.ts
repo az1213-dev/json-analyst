@@ -1,10 +1,10 @@
 /**
- * Configuration options and defaults for json-xray traversal and formatters.
+ * Configuration options and defaults for json-analyst traversal and formatters.
  */
 
 export type OutputFormat = 'ascii' | 'mermaid' | 'dot' | 'html';
 
-export interface XrayConfig {
+export interface AnalystConfig {
   /** Maximum traversal depth. Defaults to Infinity (unlimited). */
   maxDepth?: number;
   /** Max items to sample from large arrays when collapsed. Defaults to 5. */
@@ -25,11 +25,11 @@ export interface XrayConfig {
   showMetrics?: boolean;
   /** Whether to highlight anomalies (mixed types, missing keys, cycles). Defaults to true. */
   showAnomalies?: boolean;
-  /** Title for HTML viewer or diagram headers. Defaults to 'JSON X-Ray'. */
+  /** Title for HTML viewer or diagram headers. Defaults to 'JSON Analyst'. */
   title?: string;
 }
 
-export const defaultConfig: Required<XrayConfig> = {
+export const defaultConfig: Required<AnalystConfig> = {
   maxDepth: Infinity,
   maxArraySample: 5,
   format: 'ascii',
@@ -40,14 +40,14 @@ export const defaultConfig: Required<XrayConfig> = {
   colors: true,
   showMetrics: false,
   showAnomalies: true,
-  title: 'JSON X-Ray',
+  title: 'JSON Analyst',
 };
 
 /**
  * Merge user-supplied config with defaults and normalize constraints.
  */
-export function resolveConfig(config?: XrayConfig): Required<XrayConfig> {
-  const merged: Required<XrayConfig> = { ...defaultConfig, ...config };
+export function resolveConfig(config?: AnalystConfig): Required<AnalystConfig> {
+  const merged: Required<AnalystConfig> = { ...defaultConfig, ...config };
   if (merged.collapseArrays === false) {
     merged.maxArraySample = Infinity;
   }

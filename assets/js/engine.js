@@ -1,5 +1,5 @@
 /**
- * JSON X-Ray — Core Traversal & Analysis Engine
+ * JSON Analyst — Core Traversal & Analysis Engine
  * Browser-compatible, zero external dependencies.
  */
 

@@ -1,5 +1,5 @@
 /**
- * Structural AST definitions and analysis types for json-xray.
+ * Structural AST definitions and analysis types for json-analyst.
  */
 
 export type JsonPrimitiveType = 'string' | 'number' | 'boolean' | 'null';
@@ -11,7 +11,7 @@ export type AnomalyType =
   | 'circular_reference'
   | 'empty_container';
 
-export interface XrayAnomaly {
+export interface AnalystAnomaly {
   type: AnomalyType;
   path: string;
   message: string;
@@ -25,14 +25,14 @@ export interface ArchetypeProperty {
   frequency: number; // 0 to 1 ratio of appearance in the array items
 }
 
-export interface XrayArchetype {
+export interface AnalystArchetype {
   sampleCount: number;
   totalCount: number;
   properties: Record<string, ArchetypeProperty>;
   uniformKeys: boolean;
 }
 
-export interface XrayMetrics {
+export interface AnalystMetrics {
   totalNodes: number;
   maxDepth: number;
   leafCount: number;
@@ -42,7 +42,7 @@ export interface XrayMetrics {
   primitiveRatio: number;
 }
 
-export interface XrayNodeBase {
+export interface AnalystNodeBase {
   type: JsonNodeType;
   /** Property key, array index, or null for root */
   key: string | number | null;
@@ -57,19 +57,19 @@ export interface XrayNodeBase {
   /** The path to the circular target ancestor if isCircular is true */
   circularTarget?: string;
   /** Anomalies identified at or within this node */
-  anomalies?: XrayAnomaly[];
+  anomalies?: AnalystAnomaly[];
 }
 
-export interface XrayObjectNode extends XrayNodeBase {
+export interface AnalystObjectNode extends AnalystNodeBase {
   type: 'object';
-  children: XrayNode[];
+  children: AnalystNode[];
   /** Total number of keys on the original object */
   keyCount: number;
 }
 
-export interface XrayArrayNode extends XrayNodeBase {
+export interface AnalystArrayNode extends AnalystNodeBase {
   type: 'array';
-  children: XrayNode[];
+  children: AnalystNode[];
   /** Total length of the original array */
   length: number;
   /** True if children represent a sample rather than all elements */
@@ -77,18 +77,18 @@ export interface XrayArrayNode extends XrayNodeBase {
   /** 'mixed' if element types differ, otherwise the uniform type */
   itemType?: JsonNodeType | 'mixed';
   /** Inferred schema archetype if array elements are objects/records */
-  archetype?: XrayArchetype;
+  archetype?: AnalystArchetype;
 }
 
-export interface XrayPrimitiveNode extends XrayNodeBase {
+export interface AnalystPrimitiveNode extends AnalystNodeBase {
   type: JsonPrimitiveType;
   value: string | number | boolean | null;
 }
 
-export type XrayNode = XrayObjectNode | XrayArrayNode | XrayPrimitiveNode;
+export type AnalystNode = AnalystObjectNode | AnalystArrayNode | AnalystPrimitiveNode;
 
-export interface XrayTree {
-  root: XrayNode;
+export interface AnalystTree {
+  root: AnalystNode;
   /** Visited node count */
   totalNodes: number;
   /** Deepest depth reached during traversal */
@@ -96,7 +96,7 @@ export interface XrayTree {
   /** True if any part of tree was truncated (depth limit or array sampling) */
   truncated: boolean;
   /** Aggregated structural metrics */
-  metrics: XrayMetrics;
+  metrics: AnalystMetrics;
   /** All anomalies detected across the tree */
-  anomalies: XrayAnomaly[];
+  anomalies: AnalystAnomaly[];
 }

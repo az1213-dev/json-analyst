@@ -1,5 +1,5 @@
 /**
- * JSON X-Ray — Tree View & Variable Inspector
+ * JSON Analyst — Tree View & Variable Inspector
  * Provides structured list tree, lineage breadcrumbs, and node details panel.
  */
 import { Icons, icon } from './icons.js';

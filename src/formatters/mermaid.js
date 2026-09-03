@@ -14,7 +14,7 @@ function escapeLabel(str) {
 
 /**
  * Format primitive value for label.
- * @param {import('../types/ast').XrayPrimitiveNode} node
+ * @param {import('../types/ast').AnalystPrimitiveNode} node
  * @returns {string}
  */
 function formatValue(node) {
@@ -25,7 +25,7 @@ function formatValue(node) {
 
 /**
  * Build label for Mermaid node.
- * @param {import('../types/ast').XrayNode} node
+ * @param {import('../types/ast').AnalystNode} node
  * @returns {string}
  */
 function labelFor(node) {
@@ -48,7 +48,7 @@ function labelFor(node) {
 /**
  * Choose shape notation for node.
  * @param {string} id
- * @param {import('../types/ast').XrayNode} node
+ * @param {import('../types/ast').AnalystNode} node
  * @param {string} label
  * @returns {string}
  */
@@ -62,18 +62,18 @@ function shapeFor(id, node, label) {
 
 /**
  * CSS class name for node type.
- * @param {import('../types/ast').XrayNode} node
+ * @param {import('../types/ast').AnalystNode} node
  * @returns {string}
  */
 function classFor(node) {
-  if (node.isCircular) return 'xray-circular';
-  return `xray-${node.type}`;
+  if (node.isCircular) return 'analyst-circular';
+  return `analyst-${node.type}`;
 }
 
 /**
- * Render an XrayTree as a Mermaid flowchart definition.
- * @param {import('../types/ast').XrayTree} tree
- * @param {Required<import('../types/config').XrayConfig>} config
+ * Render an AnalystTree as a Mermaid flowchart definition.
+ * @param {import('../types/ast').AnalystTree} tree
+ * @param {Required<import('../types/config').AnalystConfig>} config
  * @returns {string}
  */
 function renderMermaid(tree, config) {
@@ -84,7 +84,7 @@ function renderMermaid(tree, config) {
   const classAssignments = [];
 
   /**
-   * @param {import('../types/ast').XrayNode} node
+   * @param {import('../types/ast').AnalystNode} node
    * @param {string|null} parentId
    */
   function walk(node, parentId) {
@@ -108,13 +108,13 @@ function renderMermaid(tree, config) {
 
   if (config.colors) {
     lines.push(
-      '  classDef xray-object fill:#4C6EF5,stroke:#364FC7,color:#fff;',
-      '  classDef xray-array fill:#F76707,stroke:#D9480F,color:#fff;',
-      '  classDef xray-string fill:#2F9E44,stroke:#2B8A3E,color:#fff;',
-      '  classDef xray-number fill:#AE3EC9,stroke:#9C36B5,color:#fff;',
-      '  classDef xray-boolean fill:#E8590C,stroke:#D9480F,color:#fff;',
-      '  classDef xray-null fill:#868E96,stroke:#495057,color:#fff;',
-      '  classDef xray-circular fill:#FA5252,stroke:#C92A2A,color:#fff,stroke-dasharray: 4 4;',
+      '  classDef analyst-object fill:#4C6EF5,stroke:#364FC7,color:#fff;',
+      '  classDef analyst-array fill:#F76707,stroke:#D9480F,color:#fff;',
+      '  classDef analyst-string fill:#2F9E44,stroke:#2B8A3E,color:#fff;',
+      '  classDef analyst-number fill:#AE3EC9,stroke:#9C36B5,color:#fff;',
+      '  classDef analyst-boolean fill:#E8590C,stroke:#D9480F,color:#fff;',
+      '  classDef analyst-null fill:#868E96,stroke:#495057,color:#fff;',
+      '  classDef analyst-circular fill:#FA5252,stroke:#C92A2A,color:#fff,stroke-dasharray: 4 4;',
       ...classAssignments
     );
   }

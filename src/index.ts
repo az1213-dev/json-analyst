@@ -1,6 +1,6 @@
 import { resolveConfig } from './types/config';
-import type { XrayConfig, OutputFormat } from './types/config';
-import type { XrayTree } from './types/ast';
+import type { AnalystConfig, OutputFormat } from './types/config';
+import type { AnalystTree } from './types/ast';
 import type { FormatterFn, FormatterRegistry } from './types/formatters';
 
 // Plain JS engine and formatters with JSDoc typing
@@ -20,9 +20,9 @@ export * from './types/config';
 export * from './types/formatters';
 export { buildTree };
 
-export interface XrayResult {
+export interface AnalystResult {
   /** The structural AST built from the input value */
-  tree: XrayTree;
+  tree: AnalystTree;
   /** The formatted output string */
   output: string;
   /** The format that was rendered */
@@ -48,19 +48,19 @@ export function registerFormatter(name: string, formatter: FormatterFn): void {
  *
  * @example
  * ```ts
- * import { xray } from 'json-xray';
- * const { output } = xray({ users: [{ id: 1 }, { id: 2 }] }, { format: 'ascii' });
+ * import { analyze } from 'json-analyst';
+ * const { output } = analyze({ users: [{ id: 1 }, { id: 2 }] }, { format: 'ascii' });
  * console.log(output);
  * ```
  */
-export function xray(data: unknown, options?: XrayConfig): XrayResult {
+export function analyze(data: unknown, options?: AnalystConfig): AnalystResult {
   const config = resolveConfig(options);
-  const tree: XrayTree = buildTree(data, config);
+  const tree: AnalystTree = buildTree(data, config);
   const renderer = renderers[config.format.toLowerCase()];
 
   if (!renderer) {
     throw new Error(
-      `json-xray: unknown format "${config.format}". Available formats: ${Object.keys(renderers).join(', ')}`
+      `json-analyst: unknown format "${config.format}". Available formats: ${Object.keys(renderers).join(', ')}`
     );
   }
 
@@ -69,23 +69,23 @@ export function xray(data: unknown, options?: XrayConfig): XrayResult {
 }
 
 /** Convenience wrapper for ASCII rendering */
-export function xrayAscii(data: unknown, options?: Omit<XrayConfig, 'format'>): string {
-  return xray(data, { ...options, format: 'ascii' }).output;
+export function analyzeAscii(data: unknown, options?: Omit<AnalystConfig, 'format'>): string {
+  return analyze(data, { ...options, format: 'ascii' }).output;
 }
 
 /** Convenience wrapper for Mermaid flowchart rendering */
-export function xrayMermaid(data: unknown, options?: Omit<XrayConfig, 'format'>): string {
-  return xray(data, { ...options, format: 'mermaid' }).output;
+export function analyzeMermaid(data: unknown, options?: Omit<AnalystConfig, 'format'>): string {
+  return analyze(data, { ...options, format: 'mermaid' }).output;
 }
 
 /** Convenience wrapper for Graphviz DOT rendering */
-export function xrayDot(data: unknown, options?: Omit<XrayConfig, 'format'>): string {
-  return xray(data, { ...options, format: 'dot' }).output;
+export function analyzeDot(data: unknown, options?: Omit<AnalystConfig, 'format'>): string {
+  return analyze(data, { ...options, format: 'dot' }).output;
 }
 
 /** Convenience wrapper for interactive HTML rendering */
-export function xrayHtml(data: unknown, options?: Omit<XrayConfig, 'format'>): string {
-  return xray(data, { ...options, format: 'html' }).output;
+export function analyzeHtml(data: unknown, options?: Omit<AnalystConfig, 'format'>): string {
+  return analyze(data, { ...options, format: 'html' }).output;
 }
 
-export default xray;
+export default analyze;

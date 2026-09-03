@@ -1,5 +1,5 @@
 /**
- * JSON X-Ray — Interactive Horizontal Curved Chart View
+ * JSON Analyst — Interactive Horizontal Curved Chart View
  * Renders smooth cubic Bézier curves, cyan anchor dots, and lavender labels
  * matching the user's reference design. Supports pan, zoom, collapse, and selection.
  */

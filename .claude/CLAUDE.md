@@ -47,7 +47,7 @@ Loaded automatically at session start. Defines project invariants, coding standa
 
 ### Naming Conventions
 - **Tools**: Validate, Format, Repair, Compact (not "Minify"), CSV, Chart, Tree, All Tools
-- **Brand**: JSON Analyst (not "JSON X-Ray")
+- **Brand**: JSON Analyst (not "JSON Analyst")
 - **Files**: kebab-case for HTML/CSS/JS assets; PascalCase for TypeScript classes
 - **Functions**: camelCase for methods and functions
 - **CSS Classes**: kebab-case (e.g., `.breadcrumb-item`, `.tab-pane`)
@@ -93,7 +93,7 @@ json-analyst/
 │   │   ├── dot.js                # Graphviz DOT export
 │   │   └── html.js               # Standalone HTML viewer with escapeHtml()
 │   ├── types/
-│   │   ├── ast.ts                # XrayTree, Node interfaces
+│   │   ├── ast.ts                # AnalystTree, Node interfaces
 │   │   ├── config.ts             # Configuration types
 │   │   └── formatters.ts         # Formatter interfaces
 │   └── index.ts                  # Library entry point

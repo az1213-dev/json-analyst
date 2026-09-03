@@ -14,7 +14,7 @@ function escapeLabel(str) {
 
 /**
  * Format primitive value for label.
- * @param {import('../types/ast').XrayPrimitiveNode} node
+ * @param {import('../types/ast').AnalystPrimitiveNode} node
  * @returns {string}
  */
 function formatValue(node) {
@@ -25,7 +25,7 @@ function formatValue(node) {
 
 /**
  * Build label for Graphviz node.
- * @param {import('../types/ast').XrayNode} node
+ * @param {import('../types/ast').AnalystNode} node
  * @returns {string}
  */
 function labelFor(node) {
@@ -57,7 +57,7 @@ const PALETTE = {
 
 /**
  * Get color for node type.
- * @param {import('../types/ast').XrayNode} node
+ * @param {import('../types/ast').AnalystNode} node
  * @returns {string}
  */
 function colorFor(node) {
@@ -66,23 +66,23 @@ function colorFor(node) {
 }
 
 /**
- * Render an XrayTree as a Graphviz DOT digraph.
- * @param {import('../types/ast').XrayTree} tree
- * @param {Required<import('../types/config').XrayConfig>} config
+ * Render an AnalystTree as a Graphviz DOT digraph.
+ * @param {import('../types/ast').AnalystTree} tree
+ * @param {Required<import('../types/config').AnalystConfig>} config
  * @returns {string}
  */
 function renderDot(tree, config) {
   let counter = 0;
   const nextId = () => `node${counter++}`;
   const lines = [
-    'digraph JsonXray {',
+    'digraph JsonAnalyst {',
     '  rankdir=LR;',
     '  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];',
     '  edge [color="#adb5bd"];',
   ];
 
   /**
-   * @param {import('../types/ast').XrayNode} node
+   * @param {import('../types/ast').AnalystNode} node
    * @param {string|null} parentId
    */
   function walk(node, parentId) {

@@ -1,5 +1,5 @@
 /**
- * JSON X-Ray — Cohesive SVG Icon System
+ * JSON Analyst — Cohesive SVG Icon System
  * 24x24 viewBox, 1.75px stroke-width, rounded line caps.
  * Refrains from emojis to ensure an industry-standard, professional appearance.
  */

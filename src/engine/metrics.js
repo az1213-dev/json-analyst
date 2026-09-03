@@ -2,11 +2,11 @@
 
 /**
  * Calculate structural metrics for the AST.
- * @param {import('../types/ast').XrayNode} root
+ * @param {import('../types/ast').AnalystNode} root
  * @param {number} totalNodes
  * @param {number} maxDepthReached
  * @param {unknown} [rawInput]
- * @returns {import('../types/ast').XrayMetrics}
+ * @returns {import('../types/ast').AnalystMetrics}
  */
 function computeMetrics(root, totalNodes, maxDepthReached, rawInput) {
   let leafCount = 0;
@@ -14,7 +14,7 @@ function computeMetrics(root, totalNodes, maxDepthReached, rawInput) {
   let totalChildrenAcrossContainers = 0;
 
   /**
-   * @param {import('../types/ast').XrayNode} node
+   * @param {import('../types/ast').AnalystNode} node
    */
   function visit(node) {
     if (node.type === 'object' || node.type === 'array') {

@@ -128,8 +128,8 @@ test('formatters/mermaid: renders valid graph TD flowchart with node classes', (
   const output = renderMermaid(tree, config);
 
   assert.ok(output.startsWith('graph TD'));
-  assert.ok(output.includes('classDef xray-object'));
-  assert.ok(output.includes('classDef xray-array'));
+  assert.ok(output.includes('classDef analyst-object'));
+  assert.ok(output.includes('classDef analyst-array'));
   assert.ok(output.includes('-->'));
 });
 
@@ -139,7 +139,7 @@ test('formatters/dot: renders Graphviz digraph with colors and styling', () => {
   const tree = buildTree(data, config);
   const output = renderDot(tree, config);
 
-  assert.ok(output.startsWith('digraph JsonXray {'));
+  assert.ok(output.startsWith('digraph JsonAnalyst {'));
   assert.ok(output.includes('rankdir=LR;'));
   assert.ok(output.includes('fillcolor='));
   assert.ok(output.endsWith('}'));
@@ -153,7 +153,7 @@ test('formatters/html: renders self-contained interactive viewer with lineage br
 
   assert.ok(output.includes('<!DOCTYPE html>'));
   assert.ok(output.includes('Test Viewer'));
-  assert.ok(output.includes('id="xray-tree-data"'));
+  assert.ok(output.includes('id="analyst-tree-data"'));
   assert.ok(output.includes('Family Tree (Lineage & Relations)'));
   assert.ok(output.includes('Node Inspector'));
 });
@@ -165,7 +165,7 @@ test('sdk: programmatic API wraps engine and all formatters', () => {
   const { renderDot } = require('../src/formatters/dot');
   const { renderHtml } = require('../src/formatters/html');
 
-  const data = { app: 'json-xray', version: 1 };
+  const data = { app: 'json-analyst', version: 1 };
   const tree = buildTree(data);
 
   assert.ok(renderAscii(tree, { showTypes: true, showCounts: true }));

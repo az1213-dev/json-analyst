@@ -168,10 +168,10 @@
             <line x1="16" y1="18" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
           </svg>
         </div>
-        <div class="brand-title">JSON<span>X-Ray</span></div>
+        <div class="brand-title">JSON<span>Analyst</span></div>
       </a>
       <div class="header-tools">
-        <a id="github-link" href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
+        <a id="github-link" href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
         <button id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme"></button>
       </div>
     </div>
@@ -199,7 +199,7 @@
         </svg>
         Back to JSON Analyst
       </a>
-      <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" class="error-btn error-btn-secondary">
+      <a href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" class="error-btn error-btn-secondary">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
         </svg>
@@ -219,7 +219,7 @@
         <span class="footer-sep">·</span>
         <a href="privacy-policy.html" class="footer-link">Privacy</a>
         <span class="footer-sep">·</span>
-        <a href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://github.com/az1213-dev/json-analyst" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
       </div>
     </div>
   </footer>
@@ -239,7 +239,7 @@
     }
 
     function initTheme() {
-      const saved = localStorage.getItem('json-xray-theme');
+      const saved = localStorage.getItem('json-analyst-theme');
       const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = isDark ? 'dark' : 'light';
       document.documentElement.classList.toggle('light', theme === 'light');
@@ -254,7 +254,7 @@
         document.documentElement.classList.toggle('light');
         document.documentElement.setAttribute('data-theme', newTheme);
         try {
-          localStorage.setItem('json-xray-theme', newTheme);
+          localStorage.setItem('json-analyst-theme', newTheme);
         } catch (e) {
           console.warn('localStorage unavailable');
         }

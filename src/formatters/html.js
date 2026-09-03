@@ -15,15 +15,15 @@ function escapeHtml(str) {
 }
 
 /**
- * Render an XrayTree into a standalone interactive HTML viewer.
- * @param {import('../types/ast').XrayTree} tree
- * @param {Required<import('../types/config').XrayConfig>} config
+ * Render an AnalystTree into a standalone interactive HTML viewer.
+ * @param {import('../types/ast').AnalystTree} tree
+ * @param {Required<import('../types/config').AnalystConfig>} config
  * @returns {string}
  */
 function renderHtml(tree, config) {
   const serializedTree = JSON.stringify(tree).replace(/</g, '\\u003c');
   const serializedConfig = JSON.stringify(config).replace(/</g, '\\u003c');
-  const title = escapeHtml(config.title || 'JSON X-Ray Viewer');
+  const title = escapeHtml(config.title || 'JSON Analyst Viewer');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -289,12 +289,12 @@ function renderHtml(tree, config) {
     </div>
   </div>
 
-  <script type="application/json" id="xray-tree-data">${serializedTree}</script>
-  <script type="application/json" id="xray-config-data">${serializedConfig}</script>
+  <script type="application/json" id="analyst-tree-data">${serializedTree}</script>
+  <script type="application/json" id="analyst-config-data">${serializedConfig}</script>
   <script>
     (function() {
-      const tree = JSON.parse(document.getElementById('xray-tree-data').textContent);
-      const config = JSON.parse(document.getElementById('xray-config-data').textContent);
+      const tree = JSON.parse(document.getElementById('analyst-tree-data').textContent);
+      const config = JSON.parse(document.getElementById('analyst-config-data').textContent);
 
       // Render metrics
       const metricsBar = document.getElementById('metrics-bar');

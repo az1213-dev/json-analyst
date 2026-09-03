@@ -22,7 +22,7 @@ test('web/icons: strictly zero emojis and valid SVG elements', () => {
 
 test('web/engine: builds AST, computes metrics, and detects cycles', () => {
   const sample = {
-    app: "json-xray",
+    app: "json-analyst",
     version: 1,
     active: true,
     tags: ["ast", "chart"],
