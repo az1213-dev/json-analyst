@@ -266,7 +266,7 @@ These files complement the `.claude/` documentation:
 ✅ **Quick reference sections for different audiences**  
 ✅ **Clear folder structure for scalability**  
 
-The `.claude/` folder now serves as the central documentation hub for the JSON X-Ray project, making it easy for AI agents and developers to understand the codebase, design system, and recent changes.
+The `.claude/` folder now serves as the central documentation hub for the JSON Analyst project, making it easy for AI agents and developers to understand the codebase, design system, and recent changes.
 
 ---
 

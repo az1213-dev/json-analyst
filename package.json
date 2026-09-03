@@ -1,7 +1,7 @@
 {
-  "name": "json-xray",
+  "name": "json-analyst",
   "version": "1.0.0",
-  "description": "See right through your data. Generate clean, structural graphs and hierarchical trees from complex JSON.",
+  "description": "Professional JSON analysis, validation, formatting, and transformation tools. Validate, format, repair, compact, and convert JSON to CSV with interactive visualization.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

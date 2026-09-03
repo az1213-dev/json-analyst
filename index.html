@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSON X-Ray — JSON Validator, Formatter & Structure Chart Inspector</title>
-  <meta name="description" content="Online JSON validator, formatter, and structural family tree inspector. Visualize your JSON files as an interactive horizontal curved graph and export high-resolution images." />
+  <title>JSON Analyst — Validate, Format, Repair & Analyze JSON</title>
+  <meta name="description" content="Professional JSON analysis suite. Validate, format, repair broken JSON, compact for production, convert to CSV, and visualize structure. 100% client-side." />
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -26,35 +26,37 @@
           </svg>
           <span>Format</span>
         </a>
-        <a href="#" class="nav-tool-link" title="Minify JSON" data-nav-action="minify">
+        <a href="#" class="nav-tool-link" title="Repair JSON" data-nav-action="repair">
+          <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11.7 12.3l-2.4-2.4M14 6l6-6m0 0l-4 4m4-4l-4 4M6 14H2v-2h4v2zm8 8h4v-4h-4v4z"/>
+          </svg>
+          <span>Repair</span>
+        </a>
+        <a href="#" class="nav-tool-link" title="Compact JSON" data-nav-action="compact">
           <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M8 12h8"></path>
           </svg>
-          <span>Minify</span>
+          <span>Compact</span>
         </a>
-        <a href="#" class="nav-tool-link" title="View Structure Chart" data-nav-action="chart">
+        <a href="#" class="nav-tool-link" title="Convert to CSV" data-nav-action="csv">
           <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="18" height="18" rx="2"></rect>
             <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
             <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
           </svg>
-          <span>Chart</span>
+          <span>CSV</span>
         </a>
-        <a href="#" class="nav-tool-link" title="Tree Explorer" data-nav-action="tree">
+        <a href="#" class="nav-tool-link" title="All Tools Gallery" data-nav-action="all-tools">
           <svg class="nav-tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="5" r="1"></circle>
-            <line x1="12" y1="6" x2="12" y2="12"></line>
-            <circle cx="6" cy="13" r="1"></circle>
-            <circle cx="18" cy="13" r="1"></circle>
-            <line x1="12" y1="12" x2="6" y2="13"></line>
-            <line x1="12" y1="12" x2="18" y2="13"></line>
-            <line x1="6" y1="14" x2="6" y2="20"></line>
-            <line x1="18" y1="14" x2="18" y2="20"></line>
-            <circle cx="6" cy="21" r="1"></circle>
-            <circle cx="18" cy="21" r="1"></circle>
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
           </svg>
-          <span>Tree</span>
+          <span>All Tools</span>
         </a>
       </div>
     </div>
@@ -66,18 +68,14 @@
       <a id="logo-link" class="brand-wrap" href="#">
         <div class="brand-icon-box">
           <svg viewBox="0 0 32 32" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Prism layers representing data hierarchy -->
             <g fill="currentColor" opacity="0.9">
-              <!-- Top layer -->
               <path d="M8 12 L16 16 L24 12 L24 14 L16 18 L8 14 Z" opacity="0.95"/>
-              <!-- Middle layer -->
               <path d="M10 18 L16 22 L22 18 L22 20 L16 24 L10 20 Z" opacity="0.8"/>
             </g>
-            <!-- Connecting lines -->
             <line x1="16" y1="18" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
           </svg>
         </div>
-        <div class="brand-title">JSON<span>X-Ray</span></div>
+        <div class="brand-title">JSON<span>Analyst</span></div>
       </a>
       <div class="header-tools">
         <a id="github-link" href="https://github.com/az1213-dev/json-xray" target="_blank" rel="noopener noreferrer" title="View on GitHub" class="header-icon-link" aria-label="GitHub repository"></a>
@@ -86,150 +84,293 @@
     </div>
   </header>
 
-  <!-- SECONDARY TOOL PILL NAV -->
-  <nav class="tool-nav-bar" aria-label="Tool Options">
-    <div class="tool-nav-inner">
-      <button class="nav-pill active" data-view="editor">Validator & Editor</button>
-      <button class="nav-pill pill-chart" data-view="chart">Structure Chart (Visual Image)</button>
-      <button class="nav-pill" data-view="tree">Tree & Lineage Explorer</button>
-    </div>
-  </nav>
-
   <!-- MAIN APP CONTAINER -->
   <main class="app-main">
-    <h1 class="page-title">JSON Validator and Structure Inspector</h1>
-    <p class="page-desc">To format, validate, and visualize your JSON file's structure as an interactive chart, paste it below:</p>
 
-    <!-- PANE 1: JSONLINT-STYLE EDITOR & VALIDATOR (DEFAULT VIEW) -->
-    <section id="pane-editor" class="tab-pane active">
-      <!-- Editor Card -->
+    <!-- PANE 1: VALIDATE -->
+    <section id="pane-validate" class="tab-pane active">
+      <h2 class="pane-title">JSON Validator</h2>
+      <p class="pane-desc">Check your JSON for syntax errors and get detailed error locations.</p>
       <div class="editor-card">
         <div class="editor-card-header">
           <div class="editor-header-left">
-            <label style="font-size:12px; color:var(--text-muted); font-weight:500;">Sample Datasets:</label>
+            <label>Sample Datasets:</label>
             <select id="preset-select" class="select-preset">
-              <option value="referenceStore">Store & Devices (Reference Structure)</option>
-              <option value="familyTree">3-Generation Family Tree</option>
-              <option value="users">User Records & Schema Archetypes</option>
-              <option value="circular">Circular Reference Demo</option>
+              <option value="referenceStore">Store & Devices (Reference)</option>
+              <option value="familyTree">Family Tree</option>
+              <option value="users">User Records</option>
+              <option value="circular">Circular References</option>
             </select>
           </div>
           <div class="editor-header-right">
             <input type="file" id="file-upload-input" class="file-upload-input" accept=".json,application/json" hidden />
-            <button id="btn-upload-file" type="button" class="btn-upload-file" title="Upload a .json file (max 5 MB)">
-              Upload File
-            </button>
+            <button id="btn-upload-file" type="button" class="btn-upload-file">Upload File</button>
             <span id="editor-counter" class="editor-counter">0 lines | 0 chars</span>
           </div>
         </div>
-
         <div id="editor-core-area" class="editor-core-area">
           <div id="line-numbers-gutter" class="line-numbers-gutter">1</div>
-          <textarea id="json-code-input" class="json-code-input" spellcheck="false" placeholder="Paste or type JSON here, or drop a .json file (max 5 MB)..."></textarea>
-          <div id="drop-overlay" class="drop-overlay">
-            <span>Drop .json file to upload (max 5 MB)</span>
-          </div>
+          <textarea id="json-code-input" class="json-code-input" spellcheck="false" placeholder="Paste or type JSON here..."></textarea>
+          <div id="drop-overlay" class="drop-overlay">Drop .json file to upload (max 5 MB)</div>
         </div>
       </div>
 
-      <!-- Action Buttons Row -->
       <div class="action-buttons-strip">
         <button id="btn-validate" class="btn-action-primary">Validate JSON</button>
-        <button id="btn-open-chart" class="btn-action-chart">View Structure Chart</button>
-        <button id="btn-format" class="btn-action-sub">Format / Beautify</button>
-        <button id="btn-minify" class="btn-action-sub">Minify</button>
+        <button id="btn-copy-validate" class="btn-action-sub" title="Copy to clipboard">Copy</button>
+        <button id="btn-download-validate" class="btn-action-sub" title="Download as .json">Download</button>
         <button id="btn-clear" class="btn-action-sub">Clear</button>
       </div>
 
-      <!-- Status Banner (Green on Success, Red on Error) -->
       <div id="status-banner" class="status-banner success">
         <div class="banner-header-row">
           <div id="status-title" class="banner-title"></div>
-          <div style="display:flex; gap:8px;">
-            <button id="btn-banner-chart" class="btn-action-chart" style="padding:4px 10px; font-size:12px;">View Structure Chart</button>
-            <button id="btn-banner-png" class="btn-action-sub" style="padding:4px 10px; font-size:12px;">Download Image (PNG)</button>
-          </div>
         </div>
-        <div id="status-desc" class="banner-desc">Correct JSON syntax. Structure and variable family trees analyzed.</div>
+        <div id="status-desc" class="banner-desc"></div>
         <div id="status-chips" class="status-chips-flex"></div>
       </div>
     </section>
 
-    <!-- PANE 2: STRUCTURE CHART VIEW (MATCHING USER REFERENCE IMAGE) -->
+    <!-- PANE 2: FORMAT -->
+    <section id="pane-format" class="tab-pane">
+      <h2 class="pane-title">JSON Formatter</h2>
+      <p class="pane-desc">Pretty-print and beautify your JSON with proper indentation.</p>
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <label>Input JSON:</label>
+        </div>
+        <div id="editor-core-area-format" class="editor-core-area">
+          <textarea id="json-format-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to format..."></textarea>
+        </div>
+      </div>
+
+      <div class="action-buttons-strip">
+        <button id="btn-format" class="btn-action-primary">Format / Beautify</button>
+        <button id="btn-copy-format" class="btn-action-sub">Copy Output</button>
+        <button id="btn-download-format" class="btn-action-sub">Download</button>
+      </div>
+
+      <div class="output-card">
+        <div class="output-header">Formatted Output:</div>
+        <textarea id="json-format-output" class="json-code-input" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- PANE 3: REPAIR -->
+    <section id="pane-repair" class="tab-pane">
+      <h2 class="pane-title">JSON Repairer</h2>
+      <p class="pane-desc">Automatically fix common JSON syntax errors.</p>
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <label>Malformed JSON:</label>
+        </div>
+        <div id="editor-core-area-repair" class="editor-core-area">
+          <textarea id="json-repair-input" class="json-code-input" spellcheck="false" placeholder="Paste malformed JSON to repair..."></textarea>
+        </div>
+      </div>
+
+      <div class="action-buttons-strip">
+        <button id="btn-repair" class="btn-action-primary">Auto Repair</button>
+        <button id="btn-copy-repair" class="btn-action-sub">Copy Output</button>
+        <button id="btn-download-repair" class="btn-action-sub">Download</button>
+      </div>
+
+      <div class="output-card">
+        <div class="output-header">Repaired Output:</div>
+        <textarea id="json-repair-output" class="json-code-input" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- PANE 4: COMPACT -->
+    <section id="pane-compact" class="tab-pane">
+      <h2 class="pane-title">JSON Compactor</h2>
+      <p class="pane-desc">Remove all unnecessary whitespace and reduce file size.</p>
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <label>Input JSON:</label>
+        </div>
+        <div id="editor-core-area-compact" class="editor-core-area">
+          <textarea id="json-compact-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON to compact..."></textarea>
+        </div>
+      </div>
+
+      <div class="action-buttons-strip">
+        <button id="btn-compact" class="btn-action-primary">Compact</button>
+        <button id="btn-copy-compact" class="btn-action-sub">Copy Output</button>
+        <button id="btn-download-compact" class="btn-action-sub">Download</button>
+      </div>
+
+      <div class="output-card">
+        <div class="output-header">Compacted Output:</div>
+        <textarea id="json-compact-output" class="json-code-input" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- PANE 5: CSV -->
+    <section id="pane-csv" class="tab-pane">
+      <h2 class="pane-title">JSON to CSV Converter</h2>
+      <p class="pane-desc">Convert JSON arrays to CSV format for spreadsheet compatibility.</p>
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <label>JSON Array Input:</label>
+        </div>
+        <div id="editor-core-area-csv" class="editor-core-area">
+          <textarea id="json-csv-input" class="json-code-input" spellcheck="false" placeholder="Paste JSON array to convert to CSV..."></textarea>
+        </div>
+      </div>
+
+      <div class="action-buttons-strip">
+        <button id="btn-to-csv" class="btn-action-primary">Convert to CSV</button>
+        <button id="btn-copy-csv" class="btn-action-sub">Copy CSV</button>
+        <button id="btn-download-csv" class="btn-action-sub" title="Download as .csv">Download CSV File</button>
+      </div>
+
+      <div class="output-card">
+        <div class="output-header">CSV Output:</div>
+        <textarea id="json-csv-output" class="json-code-input" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- PANE 6: CHART VIEW -->
     <section id="pane-chart" class="tab-pane">
+      <h2 class="pane-title">Structure Chart</h2>
+      <p class="pane-desc">Visualize JSON structure as an interactive horizontal tree diagram.</p>
       <div class="chart-view-card">
         <div class="chart-toolbar">
-          <div class="chart-title-tag">
-            <span>Data Visualizer</span>
-          </div>
+          <div class="chart-title-tag">Data Visualizer</div>
           <div style="display:flex; gap:8px;">
-            <button id="btn-export-png" class="btn-action-sub" style="padding:5px 12px; font-size:12px;">Download Image (PNG)</button>
-            <button id="btn-export-svg" class="btn-action-sub" style="padding:5px 12px; font-size:12px;">Download SVG</button>
+            <button id="btn-export-png" class="btn-action-sub">Download PNG</button>
+            <button id="btn-export-svg" class="btn-action-sub">Download SVG</button>
           </div>
         </div>
-
         <div class="chart-canvas-area">
-          <div id="chart-canvas" style="width:100%; height:100%;"></div>
-
-          <!-- Slide-in Inspector Drawer for Selected Node -->
-          <aside id="chart-inspector-drawer" class="chart-inspector-drawer">
-            <div class="drawer-header">
-              <span class="drawer-title" style="color:#ffffff; font-size:13.5px; font-weight:700;">Node Properties</span>
-              <button id="close-chart-drawer-btn" class="chart-ctrl-btn" title="Close Drawer">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </button>
-            </div>
-            <div id="chart-inspector-content" class="drawer-body"></div>
-          </aside>
+          <div id="chart-canvas" style="width:100%; height:600px; background:var(--bg-surface);"></div>
         </div>
       </div>
     </section>
 
-    <!-- PANE 3: TREE VIEW & LINEAGE -->
+    <!-- PANE 7: TREE VIEW -->
     <section id="pane-tree" class="tab-pane">
+      <h2 class="pane-title">Tree & Lineage Explorer</h2>
+      <p class="pane-desc">Navigate JSON hierarchy with breadcrumbs and relationship exploration.</p>
       <div class="tree-view-card">
         <div class="tree-list-sidebar">
           <div id="tree-breadcrumbs" class="tree-breadcrumbs-bar"></div>
           <div class="tree-search-bar">
-            <input type="text" id="tree-search-input" class="app-search-input" placeholder="Search variables, keys, or types..." />
-            <button id="btn-tree-expand" class="btn-action-sub" style="padding:2px 8px; font-size:11px;">Expand</button>
-            <button id="btn-tree-collapse" class="btn-action-sub" style="padding:2px 8px; font-size:11px;">Collapse</button>
+            <input type="text" id="tree-search-input" class="app-search-input" placeholder="Search variables..." />
+            <button class="btn-action-sub">Expand</button>
+            <button class="btn-action-sub">Collapse</button>
           </div>
           <div id="tree-list" class="tree-list-scroll"></div>
         </div>
-
         <div id="tree-inspector" class="tree-inspector-side"></div>
       </div>
     </section>
 
-    <!-- INFORMATIVE ARTICLES SECTION -->
-    <section class="articles-section">
-      <div class="articles-grid">
-        <div class="article-card">
-          <h3>About JSON X-Ray</h3>
-          <p>JSON X-Ray is an online validator, reformatter, and structural family tree inspector for JSON. It allows you to see straight through deeply nested structures and explore parent-child relationships in one click.</p>
+    <!-- PANE 8: ALL TOOLS GALLERY -->
+    <section id="pane-all-tools" class="tab-pane">
+      <h2 class="pane-title">All Tools Gallery</h2>
+      <p class="pane-desc">Comprehensive suite of JSON manipulation and visualization tools.</p>
+
+      <div class="tools-gallery">
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3>Validate</h3>
+          <p>Check JSON syntax for errors and get detailed error locations with line and column information.</p>
+          <button class="tool-card-btn" data-action="validate">Open Tool</button>
         </div>
-        <div class="article-card">
-          <h3>Visual Structure Chart & Image Export</h3>
-          <p>Instantly transform dense JSON data into an interactive horizontal curved graph. Pan, zoom, inspect individual variable nodes, and download the full structure as a high-resolution PNG or SVG image.</p>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M2 12h20"></path>
+            </svg>
+          </div>
+          <h3>Format</h3>
+          <p>Pretty-print your JSON with proper indentation and formatting for improved readability.</p>
+          <button class="tool-card-btn" data-action="format">Open Tool</button>
         </div>
-        <div class="article-card">
-          <h3>Variable Family Trees</h3>
-          <p>Complex APIs often bury critical data across deep levels. Family tree lineage displays the full ancestor chain from root to leaf, immediate siblings, and children for any selected key.</p>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11.7 12.3l-2.4-2.4M14 6l6-6m0 0l-4 4m4-4l-4 4M6 14H2v-2h4v2zm8 8h4v-4h-4v4z"/>
+            </svg>
+          </div>
+          <h3>Repair</h3>
+          <p>Automatically fix common JSON syntax errors like missing quotes, trailing commas, and mismatched braces.</p>
+          <button class="tool-card-btn" data-action="repair">Open Tool</button>
         </div>
-        <div class="article-card">
-          <h3>Array Schema Archetypes</h3>
-          <p>Instead of rendering 10,000 duplicate array rows, JSON X-Ray synthesizes the collection into a unified schema archetype, identifying optional fields and coverage ratios.</p>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 12h8"></path>
+            </svg>
+          </div>
+          <h3>Compact</h3>
+          <p>Remove all unnecessary whitespace and reduce file size for optimal data transmission.</p>
+          <button class="tool-card-btn" data-action="compact">Open Tool</button>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+            </svg>
+          </div>
+          <h3>CSV</h3>
+          <p>Convert JSON arrays to CSV format for easy import into spreadsheet applications.</p>
+          <button class="tool-card-btn" data-action="csv">Open Tool</button>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+            </svg>
+          </div>
+          <h3>Chart</h3>
+          <p>Visualize JSON structure as an interactive horizontal tree diagram with pan, zoom, and node inspection.</p>
+          <button class="tool-card-btn" data-action="chart">Open Tool</button>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="5" r="1"></circle>
+              <line x1="12" y1="6" x2="12" y2="12"></line>
+              <circle cx="6" cy="13" r="1"></circle>
+              <circle cx="18" cy="13" r="1"></circle>
+              <line x1="12" y1="12" x2="6" y2="13"></line>
+              <line x1="12" y1="12" x2="18" y2="13"></line>
+            </svg>
+          </div>
+          <h3>Tree</h3>
+          <p>Explore JSON hierarchy with breadcrumb navigation, search filtering, and parent-child relationships.</p>
+          <button class="tool-card-btn" data-action="tree">Open Tool</button>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
   <footer class="app-footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <span class="footer-text">Copyright 2026 JSON X-Ray. Made for developers. Runs 100% client-side in your browser.</span>
+        <span class="footer-text">Copyright 2026 JSON Analyst. Professional JSON analysis suite running 100% client-side.</span>
       </div>
       <div class="footer-links">
         <a href="about.html" class="footer-link">About</a>

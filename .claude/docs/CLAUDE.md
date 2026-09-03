@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-**JSON X-Ray** is a professional, open-source in-browser JSON developer tool with validation, formatting, interactive horizontal curved structure visualization (Bézier curves), variable family tree inspection, and high-resolution image export (`.png` / `.svg`). Independent product with unique prism-based branding and complete dark/light mode support.
+**JSON Analyst** is a professional, open-source in-browser JSON developer tool with validation, formatting, interactive horizontal curved structure visualization (Bézier curves), variable family tree inspection, and high-resolution image export (`.png` / `.svg`). Independent product with unique prism-based branding and complete dark/light mode support.
 
 - **Target Environment**: Modern web browser (100% client-side execution, zero backend server requirement).
 - **Brand Identity**: Unique prism logo (layered data concept, not JSON angle brackets), professional blue palette (#2563eb, #1f6feb, #0d47a1), dark/light mode with theme-aware colors.
@@ -15,7 +15,7 @@
 ```text
 json-xray/
 ├── index.html                     # Primary application (validator, chart, tree, export)
-├── about.html                     # About JSON X-Ray product page
+├── about.html                     # About JSON Analyst product page
 ├── privacy-policy.html            # Privacy policy & 100% client-side guarantee
 ├── 404.html                       # Error page (matches theme and navigation)
 ├── assets/                        # Client-side web application assets

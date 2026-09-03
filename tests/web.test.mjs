@@ -89,7 +89,7 @@ test('web/html: index.html references modular assets and contains required DOM I
     'line-numbers-gutter',
     'btn-validate',
     'btn-format',
-    'btn-minify',
+    'btn-compact',
     'btn-clear',
     'status-banner',
     'chart-canvas',

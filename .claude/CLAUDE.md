@@ -1,4 +1,4 @@
-# JSON X-Ray — Project Standards & Guidance
+# JSON Analyst — Project Standards & Guidance
 
 Loaded automatically at session start. Defines project invariants, coding standards, and architectural decisions for Claude Code.
 

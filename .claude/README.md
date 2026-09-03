@@ -1,6 +1,6 @@
 # Claude Code Documentation
 
-This folder contains comprehensive documentation and audit reports for the JSON X-Ray project, organized for use by Claude AI agents and developers.
+This folder contains comprehensive documentation and audit reports for the JSON Analyst project, organized for use by Claude AI agents and developers.
 
 ---
 

@@ -1,8 +1,8 @@
-# JSON X-Ray Design System
+# JSON Analyst Design System
 
 ## Overview
 
-JSON X-Ray implements a professional, accessible design system optimized for developer tools. The design prioritizes clarity, hierarchy, and a seamless dark/light mode experience.
+JSON Analyst implements a professional, accessible design system optimized for developer tools. The design prioritizes clarity, hierarchy, and a seamless dark/light mode experience.
 
 ---
 

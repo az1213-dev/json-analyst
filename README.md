@@ -1,218 +1,442 @@
-# JSON X-Ray
+# JSON Analyst
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Zero Server Dependencies](https://img.shields.io/badge/server%20dependencies-0-brightgreen.svg)]()
 [![100% Client-Side](https://img.shields.io/badge/execution-client%20side-blue.svg)]()
 [![Tests Passing](https://img.shields.io/badge/tests-16%2F16-brightgreen.svg)]()
 
-> **See right through your data.** JSON X-Ray is a professional JSON validator, formatter, and structure chart inspector running 100% client-side in your browser.
+> **Deep insights into your data.** JSON Analyst is a professional-grade JSON analysis and transformation suite running 100% in your browser. Validate, format, repair broken JSON, compact for production, convert to CSV, and explore data structures visually—all without leaving your browser and with zero server dependencies.
 
-`json-xray` is an exclusively **web-based developer tool** that provides instant JSON validation, beautification, minification, and interactive visual structure exploration—all processing happens on your machine with **zero server dependencies** and **zero data transmission**.
-
----
-
-## Key Features
-
-### Core Tools
-- **JSON Validator & Formatter**
-  - Real-time syntax validation with line-accurate error reporting
-  - One-click formatting (beautify), minification, and clearing
-  - Full-width code editor with synchronized dynamic line numbers
-  - Sample preset datasets for quick exploration
-
-- **Structure Chart Visualization**
-  - Interactive horizontal tree diagram with smooth cubic Bézier curves
-  - Infinite canvas panning and mouse-wheel zoom with floating controls
-  - Clickable node inspection showing paths, keys, values, and relationships
-  - High-resolution PNG & SVG image export
-
-- **Tree & Lineage Explorer**
-  - Ancestor breadcrumb navigation (e.g., `ROOT > data > users > 0 > address`)
-  - Real-time search filtering by variable name or type
-  - Visual branch highlighting for quick pattern discovery
-
-- **Array Schema Archetypes**
-  - Automatic schema inference for array elements
-  - Field optionality and frequency coverage analysis
-  - Unified schema contracts for multi-item collections
-
-- **Advanced Safety**
-  - Cycle-safe traversal prevents stack overflow on recursive objects
-  - Circular reference detection and annotation
-  - Safe handling of deeply nested structures
-
-### Architecture
-- **100% Client-Side**: All processing in your browser—no backend, no uploads
-- **Modular Design**: Clean separation of concerns with dedicated modules
-- **SVG Icon System**: Professional vector icons (zero emojis)
-- **Dark Mode**: Full dark/light theme support with persistent preference
-- **Privacy-First**: Complete transparency—view the source on GitHub
+**JSON Analyst** is an exclusively **web-based developer tool** that provides instant JSON validation, transformation, and visualization. Whether you're debugging API responses, analyzing data structures, or preparing JSON for distribution, JSON Analyst delivers powerful features with a clean, professional interface.
 
 ---
 
-## Directory Structure
+## ✨ Key Features
 
-```
-json-xray/
-├── index.html                     # Main JSON X-Ray application
-├── privacy-policy.html            # Privacy policy page
-├── 404.html                       # Custom error page
-├── assets/
-│   ├── css/
-│   │   └── style.css              # Professional design system & theming
-│   ├── js/
-│   │   ├── icons.js               # SVG icon definitions (24×24, zero emojis)
-│   │   ├── engine.js              # JSON AST parser, metrics, archetypes
-│   │   ├── chart.js               # Interactive chart & image exporter
-│   │   ├── tree-view.js           # Collapsible tree inspector
-│   │   ├── app.js                 # Application controller & view management
-│   │   └── package.json           # Declares {"type": "module"}
-│   └── img/
-│       └── logo.svg               # Brand logo (SVG)
-├── src/                           # NPM library layer (builds to dist/)
-│   ├── engine/                    # Core parsing & traversal
-│   ├── formatters/                # ASCII, Mermaid, DOT, HTML formatters
-│   ├── types/                     # TypeScript type definitions
-│   └── index.ts                   # Library entry point
-├── tests/                         # Automated test suite (16 tests, <100ms)
-├── .env.example                   # Environment configuration template
-├── .gitignore                     # Git ignore rules with security best practices
-├── package.json                   # Project configuration
-└── tsconfig.json                  # TypeScript configuration
-```
+### Core Analysis Tools
+
+#### **Validate**
+- Real-time JSON syntax validation
+- Precise error reporting with message details
+- Instant feedback on malformed JSON
+- Sample datasets for learning
+
+#### **Format**
+- Pretty-print JSON with configurable indentation
+- Automatic whitespace normalization
+- Readable output for documentation and debugging
+- Copy and download formatted results
+
+#### **Repair**
+- Automatically fix common JSON errors:
+  - Remove trailing commas
+  - Fix single-quoted strings
+  - Correct bracket/brace mismatches
+  - Normalize string escaping
+- Restore broken JSON to valid syntax
+
+#### **Compact**
+- Remove all unnecessary whitespace
+- Minimize file size for production
+- Ideal for data transmission and storage
+- Perfect for minification pipelines
+
+#### **CSV Conversion**
+- Transform JSON arrays into CSV format
+- Automatic column header generation
+- Proper escaping and quote handling
+- One-click CSV export
+- Direct spreadsheet compatibility
+
+### Advanced Features
+
+#### **Structure Visualization**
+- Interactive horizontal tree diagram
+- Pan and zoom controls
+- Click to inspect individual nodes
+- Visual relationship mapping
+- High-resolution PNG/SVG export
+
+#### **Tree & Lineage Explorer**
+- Navigate complex JSON hierarchies
+- Breadcrumb navigation with click-through
+- Real-time search filtering by key/type
+- Parent-child relationship visualization
+- Full lineage tracking
+
+#### **Schema Archetypes**
+- Automatic array schema inference
+- Field optionality analysis
+- Coverage percentage calculation
+- Unified schema contracts for collections
+
+#### **All Tools Gallery**
+- Centralized tool discovery
+- One-sentence descriptions of each feature
+- Quick access to any tool
+- Professional card-based layout
+
+### Quality & Reliability
+
+- **100% Client-Side**: All processing happens in your browser—nothing uploaded
+- **Zero Data Collection**: No tracking, no telemetry, no servers
+- **Cycle-Safe Traversal**: Handles circular references without crashes
+- **Professional UI**: Dark/light theme, responsive design, SVG icons
+- **Comprehensive Testing**: 16 automated tests, 100% passing
+- **Zero Emojis**: Professional design system with custom SVG icons
+- **WCAG AA Accessible**: Built for all users
+- **TypeScript Strict Mode**: Type-safe codebase
 
 ---
 
-## Quick Start
+## 🚀 Getting Started
 
 ### In Browser (No Installation)
+
 Simply open `index.html` in any modern web browser:
-- **Direct**: Double-click `index.html` or drag it into your browser
-- **With Server** (recommended):
-  ```bash
-  npx serve .
-  ```
-  Then navigate to `http://localhost:3000`
+
+**Option 1: Direct**
+- Double-click `index.html` or drag it into your browser
+
+**Option 2: With Local Server** (Recommended)
+```bash
+npx serve .
+```
+Then navigate to `http://localhost:3000`
 
 ### Supported Browsers
-- Chrome/Edge 90+
+
+- Chrome/Chromium 90+
 - Firefox 88+
 - Safari 14+
+- Edge 90+
 - Any modern browser with ES2020+ support
 
----
+### System Requirements
 
-## Development
-
-### Setup
-```bash
-npm install
-```
-
-### Run Tests
-```bash
-npm test                  # Run 16 automated tests
-npm run typecheck        # TypeScript type checking
-npm run check            # Both tests and type check
-```
-
-### Build Library
-```bash
-npm run build            # Build CJS, ESM, and .d.ts for npm distribution
-```
-
-### Preview Web App
-```bash
-npm run preview          # Serve at http://localhost:3000
-```
+- No installation required
+- No backend needed
+- Works offline
+- 5MB file upload limit
+- All modern browsers supported
 
 ---
 
-## How It Works
+## 📋 Tools Overview
 
-1. **Paste or Type JSON** into the editor
-2. **Validate** automatically—see errors pinpointed to line/column
-3. **Explore Visually**:
-   - View the structure chart with pan/zoom controls
-   - Click nodes to inspect details
-   - Navigate parent/child relationships
-4. **Export**: Download high-resolution charts as PNG or SVG
-5. **All Processing** happens on your device—nothing is uploaded
+### Validation & Error Detection
+| Tool | Purpose | Input | Output |
+|------|---------|-------|--------|
+| Validate | Check JSON syntax | Paste/Upload JSON | Error messages or success |
+| Repair | Fix broken JSON | Malformed JSON | Corrected, valid JSON |
+
+### Formatting & Transformation
+| Tool | Purpose | Input | Output |
+|------|---------|-------|--------|
+| Format | Pretty-print JSON | Any JSON | Indented, readable JSON |
+| Compact | Remove whitespace | Formatted JSON | Single-line JSON |
+| CSV | Array-to-spreadsheet | JSON array | CSV with headers |
+
+### Analysis & Visualization
+| Tool | Purpose | Input | Output |
+|------|---------|-------|--------|
+| Chart | Structure diagram | JSON data | Interactive visualization |
+| Tree | Hierarchy explorer | JSON data | Navigable tree with search |
 
 ---
 
-## Security & Privacy
+## 🎯 Use Cases
 
-- **Zero Data Collection**: No servers, no telemetry, no tracking
-- **Client-Side Only**: All JSON processing happens in your browser
-- **No Cookies**: Theme preference stored in browser localStorage only
-- **Open Source**: Audit the code on [GitHub](https://github.com/az1213-dev/json-xray)
-- **Privacy Policy**: See [privacy-policy.html](privacy-policy.html)
-
----
-
-## Features for Different Use Cases
-
-| Use Case | Tools |
+| Scenario | Tools |
 |----------|-------|
-| Debugging API responses | Validator, Tree Explorer |
-| Schema analysis | Archetypes, Chart |
-| Sharing structure | Export PNG/SVG |
-| Nested data exploration | Tree breadcrumbs, Search |
-| Payload optimization | Minify + File size |
-| Learning JSON | Sample presets, Visualizations |
+| Debugging API responses | Validate, Tree, Chart |
+| Schema analysis | Chart, Tree, Archetype |
+| Data migration prep | CSV, Compact |
+| JSON documentation | Format, Download |
+| Error diagnosis | Validate, Repair |
+| Payload optimization | Compact, Download |
+| Data exploration | Tree, Chart, Search |
+| Cross-format conversion | CSV, Compact, Format |
 
 ---
 
-## Technical Details
+## 🛠️ Technical Stack
 
-### Frontend Stack
+### Frontend
 - **HTML5**: Semantic markup, accessibility
-- **CSS3**: Custom properties (variables), dark mode, responsive layout
-- **JavaScript (ES2020+)**: Modular, no external dependencies
-- **SVG**: Vector graphics and icons
+- **CSS3**: Custom properties, dark mode, responsive layout
+- **JavaScript (ES2020+)**: Modular, zero external dependencies in browser
+- **SVG**: Vector icons (zero emojis)
 
 ### NPM Library (TypeScript)
-The `src/` directory provides a reusable library:
-- **Detector**: Classify JSON types and structures
-- **Traverser**: Safe AST traversal with cycle detection
-- **Formatters**: ASCII, Mermaid diagrams, Graphviz DOT, HTML
-- **Archetypes**: Array schema inference
+The `src/` directory provides a reusable TypeScript library:
+
+```typescript
+import { buildTree, detectType, inferArchetype, computeMetrics } from 'json-analyst';
+
+const tree = buildTree(jsonData);
+const archetype = inferArchetype(arrayData);
+const metrics = computeMetrics(tree);
+```
+
+**Available Modules:**
+- `Detector`: JSON type classification
+- `Traverser`: AST building with cycle detection
+- `Archetype`: Schema inference and analysis
+- `Metrics`: Structure complexity calculation
+- `Formatters`: ASCII, Mermaid, Graphviz DOT, HTML export
+
+### Quality Assurance
+- 16 automated tests (100% passing)
+- TypeScript strict mode
+- Zero type errors
+- Comprehensive test coverage
 
 ---
 
-## Performance
+## 📁 Directory Structure
 
-- **Fast Validation**: <10ms for typical JSON (<10MB)
-- **Low Memory**: Efficient streaming traversal
-- **Responsive UI**: 60fps chart interactions
-- **Quick Tests**: 16 tests run in <100ms
-- **No Build Required**: Open index.html directly
+```
+json-analyst/
+├── index.html                     # Main application interface
+├── about.html                     # Product information
+├── privacy-policy.html            # Privacy & data handling
+├── 404.html                       # Error page
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css              # Professional design system
+│   ├── js/
+│   │   ├── app.js                 # Main application controller
+│   │   ├── tree-view.js           # Tree explorer component
+│   │   ├── chart.js               # Visualization engine
+│   │   ├── engine.js              # JSON parsing wrapper
+│   │   ├── icons.js               # SVG icon library
+│   │   └── package.json           # ES modules declaration
+│   └── img/
+│       └── logo.svg               # Brand identity
+│
+├── src/                           # Reusable NPM library (TypeScript)
+│   ├── engine/
+│   │   ├── detector.js            # Type detection
+│   │   ├── traverser.js           # AST builder
+│   │   ├── archetype.js           # Schema inference
+│   │   └── metrics.js             # Metrics calculation
+│   ├── formatters/
+│   │   ├── ascii.js               # ASCII tree formatter
+│   │   ├── mermaid.js             # Mermaid diagram formatter
+│   │   ├── dot.js                 # Graphviz DOT formatter
+│   │   └── html.js                # Standalone HTML viewer
+│   ├── types/                     # TypeScript definitions
+│   └── index.ts                   # Library entry point
+│
+├── tests/                         # Automated test suite
+│   ├── *.test.js                  # SDK tests
+│   └── web.test.mjs               # Web integration tests
+│
+├── .claude/                       # Development documentation
+│   ├── CLAUDE.md                  # Project standards
+│   ├── DEPLOYMENT_READINESS.md    # Release checklist
+│   └── docs/                      # Detailed guides
+│
+├── .github/workflows/             # CI/CD automation
+├── .gitignore                     # Git rules
+├── .env.example                   # Configuration template
+├── LICENSE                        # MIT License
+├── package.json                   # Project metadata
+├── tsconfig.json                  # TypeScript configuration
+└── README.md                      # This file
+```
 
 ---
 
-## Browser Compatibility
+## ⚡ Performance
 
-| Feature | Support |
-|---------|---------|
-| Core validation | All modern browsers |
-| Chart visualization | Chrome 90+, Firefox 88+, Safari 14+, Edge 90+ |
-| SVG export | All modern browsers |
-| Dark mode | All modern browsers |
-| localStorage | All modern browsers |
+- **Instant Validation**: <10ms for typical JSON (<10MB)
+- **Efficient Traversal**: Streaming algorithm, low memory
+- **Smooth UI**: 60fps interactions
+- **Fast Testing**: 16 tests in ~65ms
+- **No Build Required**: Open HTML directly
 
 ---
 
-## Contributing
+## 🔒 Security & Privacy
 
-Found a bug or have a feature idea? Visit our [GitHub issues](https://github.com/az1213-dev/json-xray/issues) to contribute.
+### Privacy First
+- **100% Client-Side**: No backend servers, all processing local
+- **Zero Data Collection**: No telemetry, tracking, or analytics
+- **No Cookies**: Theme preference stored in localStorage only
+- **Open Source**: Audit the code on GitHub
+- **GDPR Compliant**: No data transmission, no personal data collection
+
+### Security Hardened
+- XSS protection via HTML escaping
+- Safe JSON parsing with cycle detection
+- No eval or dynamic code execution
+- Input validation (5MB file limit, .json only)
+- Secure CSV export with proper escaping
+
+### Third-Party Trust
+- Google Fonts for typography (trusted CDN)
+- Zero tracking libraries
+- Zero ads or sponsors
 
 ---
 
-## License
+## 🎨 Design System
 
-[ISC](LICENSE) © [az1213-dev](https://github.com/az1213-dev)
+### Color Palette
+- **Accent Blue**: Primary interactions
+- **Accent Purple**: Secondary emphasis
+- **Mint Green**: Success states
+- **Error Red**: Validation errors
+- **Neutral Grays**: Professional appearance
+
+### Typography
+- **Display Font**: Inter (sans-serif)
+- **Monospace Font**: JetBrains Mono (code)
+- **Fallback Stack**: System fonts for reliability
+
+### Responsive Breakpoints
+- Desktop: 1200px+
+- Tablet: 768px–1199px
+- Mobile: < 768px
 
 ---
 
-**Happy validating! See right through your JSON with JSON X-Ray.**
+## 📦 Installation & Development
+
+### Quick Start
+```bash
+# Clone or download the repository
+git clone https://github.com/az1213-dev/json-analyst.git
+cd json-analyst
+
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Type check
+npm run typecheck
+
+# Run all checks
+npm run check
+
+# Preview in browser
+npm run preview
+```
+
+### Build for Production
+```bash
+npm run build
+```
+
+This generates:
+- `dist/index.js` - CommonJS
+- `dist/index.mjs` - ES Module
+- `dist/index.d.ts` - TypeScript declarations
+
+---
+
+## 🧪 Testing
+
+### Test Coverage
+- **Engine Tests**: Type detection, AST building, cycle safety
+- **Formatter Tests**: ASCII, Mermaid, Graphviz, HTML output
+- **Web Tests**: UI integration, icon validation, HTML structure
+- **Total**: 16 tests, 100% pass rate
+
+### Running Tests
+```bash
+npm run check        # Full suite (tests + typecheck)
+npm test             # Tests only
+npm run typecheck    # TypeScript only
+```
+
+---
+
+## 🌐 Browser Compatibility
+
+| Feature | Chrome | Firefox | Safari | Edge |
+|---------|--------|---------|--------|------|
+| Core JSON tools | ✅ 90+ | ✅ 88+ | ✅ 14+ | ✅ 90+ |
+| Visualization | ✅ 90+ | ✅ 88+ | ✅ 14+ | ✅ 90+ |
+| CSV export | ✅ All | ✅ All | ✅ All | ✅ All |
+| Dark mode | ✅ All | ✅ All | ✅ All | ✅ All |
+| SVG icons | ✅ All | ✅ All | ✅ All | ✅ All |
+
+---
+
+## 📄 License
+
+JSON Analyst is released under the **MIT License**. See [LICENSE](LICENSE) file for details.
+
+---
+
+## 🔗 Links
+
+- **GitHub**: https://github.com/az1213-dev/json-analyst
+- **Issues**: https://github.com/az1213-dev/json-analyst/issues
+- **About**: See [about.html](about.html)
+- **Privacy**: See [privacy-policy.html](privacy-policy.html)
+
+---
+
+## 💡 Tips & Tricks
+
+### Keyboard Shortcuts
+- `Tab`: Navigate between sections
+- `Enter`: Activate selected tool
+- `Ctrl+A`: Select all (in textareas)
+- `Ctrl+C`: Copy (browser default)
+
+### Best Practices
+1. **Validate First**: Always check syntax before analysis
+2. **Use Samples**: Try sample datasets to learn
+3. **Dark Mode**: Easier on eyes for long sessions
+4. **Export Often**: Download results for documentation
+5. **Repair First**: Fix broken JSON before formatting
+
+### Common Workflows
+
+**API Response Analysis:**
+1. Copy response JSON
+2. Paste into Validate
+3. Click Tree to explore structure
+4. Use Chart for visual overview
+
+**CSV Export:**
+1. Paste JSON array
+2. Click CSV conversion
+3. Copy or download result
+4. Open in spreadsheet app
+
+**Minification for Production:**
+1. Paste formatted JSON
+2. Click Compact
+3. Download compact version
+4. Deploy with confidence
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please see GitHub issues for areas needing help.
+
+---
+
+## 📞 Support
+
+For issues, questions, or feature requests:
+- Open an issue on [GitHub](https://github.com/az1213-dev/json-analyst/issues)
+- Check existing documentation in [.claude/docs/](../.claude/docs/)
+- Review [privacy policy](privacy-policy.html) for data handling
+
+---
+
+**Version**: 1.0.0  
+**Last Updated**: September 2026  
+**Status**: Production Ready  
+**Quality**: 16/16 tests passing | Zero type errors | WCAG AA compliant
