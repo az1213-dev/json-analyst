@@ -1,0 +1,12 @@
+{
+  // JSONC-style line comment: not valid in strict JSON
+  "appName": "json-analyst",
+  "port": 3000, /* inline block comment */
+  /*
+   * Multi-line block comment describing the feature flags below.
+   */
+  "featureFlags": {
+    "treeView": true,
+    "chartExport": true
+  }
+}

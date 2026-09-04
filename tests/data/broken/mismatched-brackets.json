@@ -1,0 +1,9 @@
+{
+  "queue": "orders",
+  "messages": [
+    { "id": 1, "body": "created" },
+    { "id": 2, "body": "paid" },
+    { "id": 3, "body": "shipped" }
+  },
+  "depth": 3
+]

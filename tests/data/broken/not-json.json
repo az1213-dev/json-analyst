@@ -1,0 +1,11 @@
+-- MySQL dump 10.13  Distrib 8.0.34
+-- Host: localhost    Database: analytics
+
+CREATE TABLE `events` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `payload` json DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `events` VALUES (1,'page_view','{"path":"/"}');

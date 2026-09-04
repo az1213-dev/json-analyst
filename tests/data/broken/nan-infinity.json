@@ -1,0 +1,11 @@
+{
+  "sensor": "thermal-04",
+  "readings": [12.5, NaN, Infinity, -Infinity, 18.25],
+  "average": NaN,
+  "calibration": {
+    "offset": +0.5,
+    "scale": .75,
+    "drift": 1.2e,
+    "hex": 0x1F
+  }
+}

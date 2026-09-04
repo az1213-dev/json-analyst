@@ -1,0 +1,8 @@
+{
+  "windowsPath": "C:\Users\azapa\Documents",
+  "badUnicode": "snowman: \u26",
+  "strayEscape": "column\qvalue",
+  "rawNewline": "line one
+line two",
+  "unterminated": "this string never closes
+}

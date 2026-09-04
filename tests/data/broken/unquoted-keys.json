@@ -1,0 +1,11 @@
+{
+  id: 4821,
+  label: "Unquoted object keys",
+  active: true,
+  metrics: {
+    cpu: 0.42,
+    memory: 812,
+    disk: 15.75
+  },
+  labels: ["prod", "web"]
+}

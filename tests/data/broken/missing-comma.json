@@ -1,0 +1,9 @@
+{
+  "host": "db-primary.internal"
+  "port": 5432,
+  "ssl": true,
+  "pool": {
+    "min": 2
+    "max": 20
+  }
+}

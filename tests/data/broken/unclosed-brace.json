@@ -1,0 +1,13 @@
+{
+  "project": "json-analyst",
+  "modules": {
+    "engine": {
+      "files": ["detector.js", "traverser.js", "archetype.js"],
+      "coverage": 0.91
+    },
+    "formatters": {
+      "files": ["ascii.js", "mermaid.js", "dot.js", "html.js"],
+      "coverage": 0.87
+    }
+  ,
+  "status": "incomplete"

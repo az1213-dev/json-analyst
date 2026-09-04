@@ -1,0 +1,10 @@
+{
+  'service': 'billing',
+  'region': 'us-east-1',
+  'replicas': 4,
+  'endpoints': ['/health', '/metrics', '/invoices'],
+  'owner': {
+    'team': 'payments',
+    'contact': 'payments@example.com'
+  }
+}

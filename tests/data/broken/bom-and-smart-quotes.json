@@ -1,0 +1,5 @@
+﻿{
+  “name”: “Smart quotes and a byte-order mark”,
+  “valid”: false,
+  “nested”: { “key”: “value” }
+}

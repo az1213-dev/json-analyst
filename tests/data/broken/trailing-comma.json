@@ -1,0 +1,13 @@
+{
+  "name": "Trailing comma sample",
+  "version": "1.0.0",
+  "tags": [
+    "alpha",
+    "beta",
+    "gamma",
+  ],
+  "settings": {
+    "retries": 3,
+    "timeout": 5000,
+  },
+}
